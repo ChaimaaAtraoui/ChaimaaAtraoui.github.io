@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import type { Authors } from 'contentlayer/generated'
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
-import logo from '@/data/logo.png'  // Make sure to import your logo image
+import logo from '@/data/logo.png' // Make sure to import your logo image
 
 interface Props {
   children: ReactNode
@@ -48,7 +48,7 @@ export default function AuthorLayout({ children, content }: Props) {
 
         {/* Centered logo at the end of the page */}
         <div className="flex justify-center pt-10">
-          <Image src={logo} alt="Your Logo" className="w-32 h-32" />
+          <Image src={logo} alt="Your Logo" className="h-32 w-32" />
         </div>
       </div>
     </>

@@ -51,7 +51,6 @@ export async function generateMetadata({
       url: img && img.includes('http') ? img : siteMetadata.siteUrl + img,
     }
   })
-  
 
   return {
     title: post.title,
@@ -116,7 +115,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       </Layout>
       {/* Centered logo at the end of the page */}
       <div className="flex justify-center pt-10">
-        <Image src={logo} alt="Your Logo" className="w-32 h-32" />
+        <Image src={logo} alt="Your Logo" className="h-32 w-32" />
       </div>
     </>
   )

@@ -20,11 +20,10 @@ export default function Page({ params }: { params: { page: string } }) {
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber
   )
-const pagination = {
-  currentPage: pageNumber,
-  totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
-}
-
+  const pagination = {
+    currentPage: pageNumber,
+    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
+  }
 
   return (
     <>
@@ -36,7 +35,7 @@ const pagination = {
       />
       {/* Centered logo at the end of the page */}
       <div className="flex justify-center pt-10">
-        <Image src={logo} alt="Your Logo" className="w-32 h-32" />
+        <Image src={logo} alt="Your Logo" className="h-32 w-32" />
       </div>
     </>
   )

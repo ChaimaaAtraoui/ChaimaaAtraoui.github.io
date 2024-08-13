@@ -54,7 +54,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 <PageTitle>{title}</PageTitle>
                 {/* Render subtitle below the title */}
                 {subtitle && (
-                  <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mt-2">
+                  <h2 className="mt-2 text-lg font-semibold text-gray-700 dark:text-gray-300">
                     {subtitle}
                   </h2>
                 )}

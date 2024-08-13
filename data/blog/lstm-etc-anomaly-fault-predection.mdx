@@ -1,12 +1,11 @@
 ---
 title: Anomaly Detection and Faults Prediction in Printer Machines Using LSTM Autoencoder and Extra Trees Classifier
 date: 2023-08-21T14:00:00.000Z
-tags: ['research','predictive-maintenance','ai']
+tags: ['research', 'predictive-maintenance', 'ai']
 draft: false
-subtitle: "Essay on a new approach"
-summary: "Combining LSTM Autoencoders and Extra Trees Classifiers for Enhanced Predictive Maintenance"
+subtitle: 'Essay on a new approach'
+summary: 'Combining LSTM Autoencoders and Extra Trees Classifiers for Enhanced Predictive Maintenance'
 ---
-
 
 **Abstract**
 
@@ -47,6 +46,7 @@ In this approach, I label data recorded before a 24-hour interval of a known fau
 To create a comprehensive predictive maintenance framework, I propose integrating anomaly detection using LSTM-based autoencoders with predictions from the Extra Trees classifier. This integration combines the strengths of both techniques to enhance early fault prediction.
 
 Let:
+
 - $X=(x_1,x_2,...,x_n)$ be the multivariate time series dataset with $n$ instances.
 - $Y = (y_1,y_2,...,y_n)$ be the corresponding fault labels indicating fault presence within a 24-hour frame.
 - $T$ is the time frame (24 hours) for predicting fault occurrence.
@@ -87,11 +87,13 @@ Data collected every 10 minutes showed the integrated approach's effectiveness i
 ### D. Advantages and Limits
 
 **Advantages:**
+
 - **Complete Fault Detection:** Captures both known and unknown fault types.
 - **Enhanced Accuracy:** Combines anomaly detection and fault prediction strengths.
 - **Adaptability:** Updates models with new data to remain effective.
 
 **Limits:**
+
 - **Model Complexity:** Integration increases model complexity.
 - **Data Requirements:** Requires extensive data for training and validation.
 

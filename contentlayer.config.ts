@@ -48,7 +48,7 @@ const computedFields: ComputedFields = {
  */
 function createTagCount(allBlogs) {
   const tagCount: Record<string, number> = {}
-  
+
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
       console.log(`Processing tags for blog: ${file.title}`) // Log the title of the blog
@@ -63,13 +63,10 @@ function createTagCount(allBlogs) {
       })
     }
   })
-  
+
   console.log('Final tag count:', tagCount) // Log the final tag count
   writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
 }
-
-
-
 
 function createSearchIndex(allBlogs) {
   if (
@@ -95,7 +92,7 @@ export const Blog = defineDocumentType(() => ({
     lastmod: { type: 'date' },
     draft: { type: 'boolean' },
     summary: { type: 'string' },
-    subtitle: { type: 'string' }, 
+    subtitle: { type: 'string' },
     images: { type: 'json' },
     authors: { type: 'list', of: { type: 'string' } },
     resumes: { type: 'list', of: { type: 'string' } },
@@ -159,7 +156,7 @@ export const Resumes = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors,Resumes],
+  documentTypes: [Blog, Authors, Resumes],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -180,7 +177,6 @@ export default makeSource({
     ],
   },
 
-  
   onSuccess: async (importData) => {
     const { allBlogs } = await importData()
     createTagCount(allBlogs)

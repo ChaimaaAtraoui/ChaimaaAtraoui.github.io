@@ -1,6 +1,6 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: "Shaima Atraoui",
+  title: 'Shaima Atraoui',
   author: 'Shaimaa Atraoui',
   headerTitle: 'Shaima Atraoui',
   description: 'Persona blog & portfolio',
@@ -13,7 +13,7 @@ const siteMetadata = {
   email: 'chaima.atra@gmail.com',
   github: 'https://github.com/shemashi',
   instagrm: 'https://www.instagram.com/shemayes/',
-  linkedin : 'https://www.linkedin.com/in/chaimaa-atraoui/',
+  linkedin: 'https://www.linkedin.com/in/chaimaa-atraoui/',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the

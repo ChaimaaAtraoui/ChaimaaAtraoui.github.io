@@ -1,17 +1,17 @@
-"use client"; // Mark this file as a Client Component
+'use client' // Mark this file as a Client Component
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation'; // Use the new import for routing
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation' // Use the new import for routing
 
 const Home = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   useEffect(() => {
     // Remove or modify the redirection logic if you want a different behavior
     // router.push('/about'); // Comment this out or modify it
-  }, [router]);
+  }, [router])
 
-  return null; // This component will not render anything
-};
+  return null // This component will not render anything
+}
 
-export default Home;
+export default Home
