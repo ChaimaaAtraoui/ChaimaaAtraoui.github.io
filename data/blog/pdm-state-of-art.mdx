@@ -1,0 +1,108 @@
+---
+title: Predictive Maintenance in Industry 4.0
+date: 2023-03-13T14:00:00.000Z
+tags: ['research','predictive-maintenance','ai']
+draft: false
+subtitle: "Synthesis of The State of Art"
+summary: "An overview of predictive maintenance in Industry 4.0, including use cases, challenges, and approaches."
+---
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Predictive maintenance is an important concept in Industry 4.0 that involves using data analytics and machine learning algorithms to predict equipment failures and perform maintenance before the failure occurs. This approach aims to predict when, where, and which components may have potential failures and thus provide a wide range of outputs that can help improve equipment reliability, reduce maintenance costs, and optimize production processes.
+
+There are different use cases of predictive maintenance such as:
+
+1. **Fault Detection and Diagnosis (FDD):** Algorithms use sensor data to detect and diagnose faults in equipment. This helps identify the root cause of the problem and take corrective actions before the equipment fails.
+2. **Anomaly Detection:** Anomaly detection algorithms detect abnormal behavior in equipment, which may indicate an impending failure. These algorithms can detect anomalies that are not easily observable by humans, such as subtle changes in vibration patterns or temperature.
+3. **Prognostics:** Prognostic algorithms predict the future health of the equipment based on sensor data. This helps identify potential failures before they occur and take preventive actions to avoid downtime.
+4. **Remaining Useful Life (RUL):** A commonly used indicator in the industry to assess the condition of assets. The RUL of an asset refers to the time left until the end of its expected operational life concerning the purpose for which it was purchased. The same asset can have different degradation levels and varying RUL values under different operating conditions, making it challenging to create a generic model, whether statistical or otherwise, for estimating the RUL value.
+
+
+Despite the challenges, accurate estimation of the RUL value is crucial for enabling predictive maintenance of a system. Therefore, several solutions are being developed to address this problem. However, state-of-the-art algorithms such as linear regression models, Hidden Markov Models, and Long Short-Term Memory Neural Networks require extensive and complex modeling and training to estimate the RUL value, and their efficiency is limited.
+
+Kusumaningrum et al. (2021) in their research paper proposed a fault diagnostic algorithm based on two algorithms for multi-class classification of normal and abnormal conditions and fault prognostic for RUL classes in predictive maintenance of a motor with sensor data so that the company can find out the prediction of future failure times.
+![Fault Diagnostic Algorithm](/static/images/pdm-state-of-art/fault-diagnostic-algorithm.png)
+
+
+
+The first step after acquiring the data is to label it to prepare it for the proposed model:
+
+- **Diagnostic data labeling:** The data is categorized into normal and abnormal classes, including various machine failure causes.
+- **Prognostic data labeling:** Involves categorizing the data into two classes based on the Remaining Useful Life (RUL) range.
+- **Expert judgment:** Used to divide the data into two categories: RUL greater than one month and RUL less than one month.
+- **Supporting data:** Such as downtime and maintenance reports are used to determine the causes of abnormal data and the RUL range.
+- **Pre-processing:** The labeled data is then pre-processed to remove data noise and transform sensor data to a standardized scale range.
+- **Model building:** After pre-processing, the labeled and standardized data is used to build the diagnostic and prognostic models.
+
+This research used Support Vector Machine (SVM) and Random Forest (RF) algorithms implemented using Python software for analyzing equipment sensor data.
+
+The goal is to achieve the highest accuracy for the diagnostic and prognostic models based on machine condition, as well as obtain a prognostic model based on the RUL range.
+
+
+
+
+The parameter scenarios are obtained from previous studies such as Erfanifard et al. (2014) for tuning SVM parameters, and Sonobe et al. (2014) for tuning RF parameters. According to the discussion and result analysis, the proposed diagnostic and prognostic model could predict classes for each model. Each algorithm has good accuracy for the diagnostic and prognostic model, but the highest accuracy, precision, and recall were obtained with Random Forest, which was only proven utile for this specific use case.
+
+![Parameters SVM](/static/images/pdm-state-of-art/parameters-svm.png)
+Almost all the research papers and articles use the same workflow architecture for predictive maintenance model implementation with four main steps: Feature engineering, predictive model building, validation, and evaluation of the proposed model.
+
+Simone et al. (2019) proposed in their paper a Cloud-to-Edge approach to support predictive analytics in the Robotics Industry.
+
+![Cloud-to-Edge Approach](/static/images/pdm-state-of-art/cloud-to-edge-approach.png)
+
+Predictive maintenance data has a temporal dimension across different records. The feature engineering component is responsible for processing raw time series datasets and extracting the main features that describe the target variable. To reduce the amount of data sent from the edge to the cloud, Simone et al. (2019) implemented processed data at a later stage. However, the computation of statistical features in the time domain can produce a large number of attributes, which can affect the performance of the subsequent analysis. Some features may be highly correlated with each other, leading to redundant information and noise in the model-building phase. To address this issue, the analytics engine includes a feature selection technique based on the Pearson correlation test (Ross et al., 2014) to select the most valuable features.
+
+Three classification algorithms - Decision Tree, Random Forest, and Gradient Boosted Tree - were chosen for their interpretability to build the model. After building the model, labels and their probabilities for new incoming sensor data can be predicted in real-time. The trained model is deployed at the edge to enable timely corrective and preventive actions.
+
+The Validation block is responsible for evaluating the performance of the predictive model built in the previous step. To achieve this, the Stratified K-Fold Cross-validation strategy is used, and precision, recall, and F-measure values are calculated for each class of interest. In industrial production environments, the collected data may change over time due to equipment degradation, the adoption of new machinery, or environmental factors. The Self-assessment phase aims to identify if there are any changes in the production environment or new labels not included in the dataset that may have degraded the predictive model's performance. To achieve this, the proposed methodology uses the Descriptor Silhouette (DS) metric by Ventura et al. (2019).
+
+The self-assessment service produces a measure of the percentage of degradation of the predictive model performance given by the following relation:
+
+![Degradation Formula](/static/images/pdm-state-of-art/degradation.png)
+
+
+The degradation is calculated for each class $c$ learned by the predictive model and at a specific timestamp $t$, and obtained by calculating the Mean Arctangent Absolute Percentage Error (MAAPE) between the DS curve calculated with the training data and the DS curve calculated with all the data collected until time $t$. This error is then weighted by the number of points predicted to belong to class $c(N_c)$ w.r.t. the cardinality of the whole dataset $(N)$. The coefficient $\alpha$ instead, gives the sign to the degradation, describing if the mean silhouette is increased (negative sign) or decreased (positive sign), after the arrival of new unknown data.
+
+This work also proposes a novel methodology for RUL estimation. Data collected out of different phases of an asset's operational life are used to model its behavior at specified and labeled timestamps and support the identification of deviations from its nominal or ideal operational profile and other as well-labeled profiles.
+
+More specifically, data acquired at deployment can be considered an ideal operational profile from which degradation starts to gradually deteriorate its operational behavior. Subsequently, during its use for production purposes, data are used to estimate the deviation from this nominal profile. The distribution of the nominal set of key variables is calculated. Then the probability of each selected variable to belong to the nominal distribution is estimated using the Gaussian kernel density estimation. This probability representing the deviation of the two profiles can then be associated with the RUL indicator or similar, facilitating its estimation. The lower the probability of each selected variable to belong to the data distribution of the correct functioning of the machinery, the faster the degradation of object functionality, thus the lower the RUL.
+
+Hence, the estimation of the RUL value as presented in this work relies upon two main factors: (1) the joint probability of the selected features with respect to their nominal profile or distribution, and (2) the presence of probability drifting in the collected data over time. Both factors consist of functions of time $t$. At a random time $t$, the percentage of the RUL value can be defined as follows:
+
+![RUL Value Formula](/static/images/pdm-state-of-art/rul-value.png)
+
+where:
+
+- $X(t_0)$ refers to the set of historical data collected from the beginning of the operational life to a time $t_0$ corresponding to the nominal or ideal operational profile of the asset under consideration.
+- $X(t)$ refers to the new data collected from $t_0$ to time $t$.
+- $N_t$ corresponds to the number of new signals collected up to time $t$.
+- $S$ is the set of relevant features for characterizing the degradation level of the asset.
+- $K(X_s(t_0))$ denotes the distribution of the feature $s \in S$ estimated from the historical data $X(t_0)$.
+- $P(x_s \in K(X_s(t_0))$ refers to the probability of the data collected up to time $t$ belonging to the nominal distribution $K(X_s(t_0))$.
+
+As a result, Equation (2) estimates the percentage of RUL as a function of time by calculating
+the mean of the joint probabilities of each selected feature to belong to the ideal or nominal
+operational distribution, for each incoming set of data, weighted by 100 minus the percentage reflecting the probability drift at a time t. The contribution of the drifting probability is calculated as 100 minus the percentage of degradation, reflected in the collected data, since an opposite analogy is considered between the RUL and the drift values.
+The limits of this work is that it was designed to be technology-independent and it’s not related to a specific use case , so the feature engineering part and remaining useful life calcul should be reconsidered depending on the objective predicted.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another approach is using Deep Learning algorithms for Predictive maintenance.  Lafhaj et al.(2021) in their paper proposed a model that has the architecture of an autoencoder  which is composed of two processes—an encoder and a decoder, .where the encoder part consists of two Long Short-Term Memory(LSTM) layers followed by a reshaping layer to reshape the vector into the right dimension, The encoder transforms the input data trying to dig out hidden representations. The decoder part is similar and is composed of two LSTM layers and a reshaping layer, the decoder tries to reconstruct the input data from the hidden representations. The resulant vector in the utput layer has the same dimension as the input vector. The choice of the autoencoder and LSTM layers is justified by the model’s nature as an unsupervised learning algorithm and because the nature of data to be sequentially processed which is time-series data.
+
+     ![LSTM1](/static/images/pdm-state-of-art/lstm1.png) 
+     ![LSTM1](/static/images/pdm-state-of-art/lstm2.png)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Implementing a predictive maintenance strategy poses several challenges, including the integration of physical assets, the extraction of valuable data, and the development of accurate predictive algorithms. Although the concept of predictive maintenance is not new, with multiple studies conducted in the past few decades, the deployment of effective predictive solutions has remained costly and challenging. Furthermore, recent advancements in the industry have led to increased machine complexity, making it difficult to predict failures using conventional statistical methods. One significant challenge is the imbalance of data analyzed for predictive maintenance due to the small number of recorded failures compared to other entries. 
+This imbalance necessitates multiple adjustments depending on the specific use case.
+## References
+
+<div style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
+  - Bouabdallaoui, Y.; Lafhaj,Z.; Yim, P.; Ducoulombier, L.; Bennadji, B. *Predictive Maintenance in Building Facilities: A Machine Learning-Based Approach*. Sensors 2021, 21, 1044.  
+  - Panicucci, S.; Nikolakis, N.; Cerquitelli, T.; Ventura, F.; Proto, S.; Macii, E.; Makris, S.; Bowden, D.; Becker, P.; O’Mahony, N.; Morabito, L.; Napione, C.; Marguglio, A.; Coppo, G.; Andolina, S. *A Cloud-to-Edge Approach to Support Predictive Analytics in Robotics Industry*. *Electronics* **2020**, *9*, 492.  
+  - Panagiotis Korvesis. *Machine Learning for Predictive Maintenance in Aviation. Artificial Intelligence* [[cs.AI](http://cs.ai/)]. Université Paris-Saclay, 2017. English. NNT : 2017SACLX093. tel02003508.  
+  - Susto, Gian Antonio & Schirru, Andrea & Pampuri, Simone & Mcloone, Sean & Beghi, Alessandro. (2015). *Machine Learning for Predictive Maintenance: A Multiple Classifier Approach*. Industrial Informatics, IEEE Transactions on. 11. 812-820. 10.1109/TII.2014.2349359.  
+  - Shaheen, Basheer & Nemeth, Istvan. (2022). *Integration of Maintenance Management System Functions with Industry 4.0 Technologies and Features-A Review*. Processes. 10. 2173. 10.3390/pr10112173.  
+  - Paolanti, Marina & Romeo, Luca & Felicetti, Andrea & Mancini, Adriano & Frontoni, Emanuele & Loncarski, Jelena. (2018). *Machine Learning approach for Predictive Maintenance in Industry 4.0.* 1-6. 10.1109/MESA.2018.8449150.  
+  - Emiliano Traini, Giulia Bruno, Gianluca D’Antonio, Franco Lombardi, *Machine Learning Framework for Predictive Maintenance in Milling*, IFAC-PapersOnLine, Volume 52, Issue 13, 2019, Pages 177-182, ISSN 2405-8963.  
+  - Natanael, D.; Sutanto, H. *Machine Learning Application Using Cost-Effective Components for Predictive Maintenance in Industry: A Tube Filling Machine Case Study*. J. Manuf. Mater. Process. 2022, 6, 108. https://doi.org/10.3390/jmmp6050108.  
+  - Ferreira, Luís & Pilastri, André & Romano, Filipe & Cortez, Paulo. (2022). *Using Supervised and One-Class Automated Machine Learning for Predictive Maintenance*. Applied Soft Computing. 109820. 10.1016/j.asoc.2022.109820.  
+  - Dwi Kusumaningrum, Nani Kurniati, Budi Santosa. *Machine Learning for Predictive Maintenance*. Department of Industrial and Systems Engineering Sepuluh Nopember Institute of Technology Surabaya, 60111, Indonesia, Proceedings of the International Conference on Industrial Engineering and Operations Management Sao Paulo, Brazil, April 5 - 8, 2021.
+</div>
