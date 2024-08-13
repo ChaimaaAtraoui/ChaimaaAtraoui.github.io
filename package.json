@@ -5,10 +5,12 @@
   "private": true,
   "scripts": {
     "start": "next dev",
+    "command": "npm run build",
+    "publish": "out",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build -b main",
     "dev": "cross-env INIT_CWD=$PWD next dev",
-    "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
+    "build": "next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
@@ -41,6 +43,7 @@
     "remark": "^15.0.0",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
+    "sharp": "^0.33.4",
     "tailwindcss": "^3.4.6",
     "unist-util-visit": "^5.0.0"
   },
