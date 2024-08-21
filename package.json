@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "next dev",
-    "predeploy": "yarn build",
+    "predeploy": "yarn build && next export",
     "deploy": "gh-pages -d out",
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "build": "next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",

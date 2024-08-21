@@ -1,4 +1,3 @@
-// next.config.js
 const { withContentlayer } = require('next-contentlayer2')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -46,49 +45,39 @@ const securityHeaders = [
   },
 ]
 
-module.exports = () => {
-  const plugins = [withContentlayer, withBundleAnalyzer]
+/**
+ * @type {import('next').NextConfig}
+ **/
+const nextConfig = {
+  reactStrictMode: true,
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  eslint: {
+    dirs: ['app', 'components', 'layouts', 'scripts'],
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+    ],
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ]
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
 
-  return plugins.reduce((acc, next) => next(acc), {
-    reactStrictMode: true,
-    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    eslint: {
-      dirs: ['app', 'components', 'layouts', 'scripts'],
-    },
-    images: {
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: 'picsum.photos',
-        },
-      ],
-    },
-    basePath: '/chaimaatraoui.github.io', // Update this to your repo name
-    assetPrefix: '/chaimaatraoui.github.io/', // Update this to your repo name
-    async headers() {
-      return [
-        {
-          source: '/(.*)',
-          headers: securityHeaders,
-        },
-      ]
-    },
-    async redirects() {
-      return [
-        {
-          source: '/',
-          destination: '/about',
-          permanent: true,
-        },
-      ]
-    },
-    webpack: (config, options) => {
-      config.module.rules.push({
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      })
-
-      return config
-    },
-  })
+    return config
+  },
 }
+
+module.exports = withContentlayer(withBundleAnalyzer(nextConfig))
