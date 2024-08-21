@@ -1,0 +1,232 @@
+[
+  {
+    "title": "Online Retail Store Report",
+    "date": "2024-01-31T14:00:00.000Z",
+    "tags": ["ai", "data-analytics"],
+    "draft": false,
+    "summary": "Thorough analysis and PowerBi dashboard for an online retail store",
+    "subtitle": "Comprehensive Analysis of the Online Retail Dataset",
+    "type": "Blog",
+    "readingTime": { "text": "4 min read", "minutes": 3.17, "time": 190200, "words": 634 },
+    "slug": "online-retail-store-analysis",
+    "path": "blog/online-retail-store-analysis",
+    "filePath": "blog/online-retail-store-analysis.mdx",
+    "toc": [
+      {
+        "value": "I. Dashboard 1: Sales Performance Overview",
+        "url": "#i-dashboard-1-sales-performance-overview",
+        "depth": 2
+      },
+      {
+        "value": "II. Dashboard 2: Market & Customer Analysis",
+        "url": "#ii-dashboard-2-market--customer-analysis",
+        "depth": 2
+      },
+      { "value": "Conclusion", "url": "#conclusion", "depth": 2 }
+    ],
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Online Retail Store Report",
+      "datePublished": "2024-01-31T14:00:00.000Z",
+      "dateModified": "2024-01-31T14:00:00.000Z",
+      "description": "Thorough analysis and PowerBi dashboard for an online retail store",
+      "url": "https://shaimaatraoui.me/blog/online-retail-store-analysis"
+    }
+  },
+  {
+    "title": "Anomaly Detection and Faults Prediction in Printer Machines Using LSTM Autoencoder and Extra Trees Classifier",
+    "date": "2023-08-21T14:00:00.000Z",
+    "tags": ["research", "predictive-maintenance", "ai"],
+    "draft": false,
+    "summary": "Combining LSTM Autoencoders and Extra Trees Classifiers for Enhanced Predictive Maintenance",
+    "subtitle": "Essay on a new approach",
+    "type": "Blog",
+    "readingTime": { "text": "5 min read", "minutes": 4.89, "time": 293400, "words": 978 },
+    "slug": "lstm-etc-anomaly-fault-predection",
+    "path": "blog/lstm-etc-anomaly-fault-predection",
+    "filePath": "blog/lstm-etc-anomaly-fault-predection.mdx",
+    "toc": [
+      { "value": "I. Introduction", "url": "#i-introduction", "depth": 2 },
+      {
+        "value": "II. Predictive Maintenance - State of the Art",
+        "url": "#ii-predictive-maintenance---state-of-the-art",
+        "depth": 2
+      },
+      {
+        "value": "A. Different Approaches to Predictive Maintenance",
+        "url": "#a-different-approaches-to-predictive-maintenance",
+        "depth": 3
+      },
+      {
+        "value": "B. Approach for Early Fault Prediction",
+        "url": "#b-approach-for-early-fault-prediction",
+        "depth": 3
+      },
+      {
+        "value": "III. Integration of Anomaly Detection and Fault Prediction for Predictive Maintenance",
+        "url": "#iii-integration-of-anomaly-detection-and-fault-prediction-for-predictive-maintenance",
+        "depth": 2
+      },
+      { "value": "A. Objective", "url": "#a-objective", "depth": 3 },
+      {
+        "value": "B. Incorporating Anomaly Detection Results",
+        "url": "#b-incorporating-anomaly-detection-results",
+        "depth": 3
+      },
+      {
+        "value": "C. Using Extra Trees Classifier for Fault Prediction",
+        "url": "#c-using-extra-trees-classifier-for-fault-prediction",
+        "depth": 3
+      },
+      {
+        "value": "VI. Case Studies and Practical Applications",
+        "url": "#vi-case-studies-and-practical-applications",
+        "depth": 2
+      },
+      {
+        "value": "Case Study 1: Machines Banch 1 Dataset",
+        "url": "#case-study-1-machines-banch-1-dataset",
+        "depth": 3
+      },
+      {
+        "value": "Case Study 2: Machines Banch 2 Dataset",
+        "url": "#case-study-2-machines-banch-2-dataset",
+        "depth": 3
+      },
+      { "value": "D. Advantages and Limits", "url": "#d-advantages-and-limits", "depth": 3 },
+      {
+        "value": "VII. Conclusion and Perspectives",
+        "url": "#vii-conclusion-and-perspectives",
+        "depth": 2
+      }
+    ],
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Anomaly Detection and Faults Prediction in Printer Machines Using LSTM Autoencoder and Extra Trees Classifier",
+      "datePublished": "2023-08-21T14:00:00.000Z",
+      "dateModified": "2023-08-21T14:00:00.000Z",
+      "description": "Combining LSTM Autoencoders and Extra Trees Classifiers for Enhanced Predictive Maintenance",
+      "url": "https://shaimaatraoui.me/blog/lstm-etc-anomaly-fault-predection"
+    }
+  },
+  {
+    "title": "One Ok Rock tour concert in Paris",
+    "date": "2023-07-13T14:00:00.000Z",
+    "tags": ["life"],
+    "draft": true,
+    "summary": "attending the japanese band concert in paris",
+    "subtitle": "A teenager's wish",
+    "layout": "PostSimple",
+    "type": "Blog",
+    "readingTime": { "text": "0 min read", "minutes": 0, "time": 0, "words": 0 },
+    "slug": "teenager-wish",
+    "path": "blog/teenager-wish",
+    "filePath": "blog/teenager-wish.mdx",
+    "toc": [],
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "One Ok Rock tour concert in Paris",
+      "datePublished": "2023-07-13T14:00:00.000Z",
+      "dateModified": "2023-07-13T14:00:00.000Z",
+      "description": "attending the japanese band concert in paris",
+      "url": "https://shaimaatraoui.me/blog/teenager-wish"
+    }
+  },
+  {
+    "title": "Predictive Maintenance in Industry 4.0",
+    "date": "2023-03-13T14:00:00.000Z",
+    "tags": ["research", "predictive-maintenance", "ai"],
+    "draft": false,
+    "summary": "An overview of predictive maintenance in Industry 4.0, including use cases, challenges, and approaches.",
+    "subtitle": "Synthesis of The State of Art",
+    "type": "Blog",
+    "readingTime": { "text": "11 min read", "minutes": 10.995, "time": 659700, "words": 2199 },
+    "slug": "pdm-state-of-art",
+    "path": "blog/pdm-state-of-art",
+    "filePath": "blog/pdm-state-of-art.mdx",
+    "toc": [{ "value": "References", "url": "#references", "depth": 2 }],
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Predictive Maintenance in Industry 4.0",
+      "datePublished": "2023-03-13T14:00:00.000Z",
+      "dateModified": "2023-03-13T14:00:00.000Z",
+      "description": "An overview of predictive maintenance in Industry 4.0, including use cases, challenges, and approaches.",
+      "url": "https://shaimaatraoui.me/blog/pdm-state-of-art"
+    }
+  },
+  {
+    "title": "Day in geneva",
+    "date": "2023-01-08T14:00:00.000Z",
+    "tags": ["life"],
+    "draft": true,
+    "summary": "What's new, deprecations and tips in 2022.",
+    "layout": "PostSimple",
+    "type": "Blog",
+    "readingTime": { "text": "0 min read", "minutes": 0, "time": 0, "words": 0 },
+    "slug": "day-in-geneva",
+    "path": "blog/day-in-geneva",
+    "filePath": "blog/day-in-geneva.mdx",
+    "toc": [],
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Day in geneva",
+      "datePublished": "2023-01-08T14:00:00.000Z",
+      "dateModified": "2023-01-08T14:00:00.000Z",
+      "description": "What's new, deprecations and tips in 2022.",
+      "url": "https://shaimaatraoui.me/blog/day-in-geneva"
+    }
+  },
+  {
+    "title": "Panthera leo, walk through the other city of lights",
+    "date": "2023-01-08T14:00:00.000Z",
+    "tags": ["life"],
+    "draft": true,
+    "summary": "Discovering lyon.",
+    "subtitle": "My favorite french city",
+    "layout": "PostSimple",
+    "type": "Blog",
+    "readingTime": { "text": "0 min read", "minutes": 0, "time": 0, "words": 0 },
+    "slug": "lyon",
+    "path": "blog/lyon",
+    "filePath": "blog/lyon.mdx",
+    "toc": [],
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Panthera leo, walk through the other city of lights",
+      "datePublished": "2023-01-08T14:00:00.000Z",
+      "dateModified": "2023-01-08T14:00:00.000Z",
+      "description": "Discovering lyon.",
+      "url": "https://shaimaatraoui.me/blog/lyon"
+    }
+  },
+  {
+    "title": "The scent of time through Paris alleys",
+    "date": "2023-01-08T14:00:00.000Z",
+    "tags": ["life"],
+    "draft": true,
+    "summary": "What's new, deprecations and tips in 2022.",
+    "subtitle": "paris through my own lenses",
+    "layout": "PostSimple",
+    "type": "Blog",
+    "readingTime": { "text": "0 min read", "minutes": 0, "time": 0, "words": 0 },
+    "slug": "paris-journey",
+    "path": "blog/paris-journey",
+    "filePath": "blog/paris-journey.mdx",
+    "toc": [],
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "The scent of time through Paris alleys",
+      "datePublished": "2023-01-08T14:00:00.000Z",
+      "dateModified": "2023-01-08T14:00:00.000Z",
+      "description": "What's new, deprecations and tips in 2022.",
+      "url": "https://shaimaatraoui.me/blog/paris-journey"
+    }
+  }
+]
