@@ -12,7 +12,7 @@ const siteMetadata = {
   // mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'chaima.atra@gmail.com',
   github: 'https://github.com/shemashi',
-  instagrm: 'https://www.instagram.com/shemayes/',
+  instagrm: 'https://www.instagram.com/teamaoui/',
   linkedin: 'https://www.linkedin.com/in/chaimaa-atraoui/',
   locale: 'en-US',
   analytics: {
