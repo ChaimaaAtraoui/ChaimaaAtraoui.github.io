@@ -5,7 +5,7 @@ import { genPageMetadata } from 'app/seo'
 import Image from '@/components/Image'
 import logo from '@/data/logo.png'
 
-const POSTS_PER_PAGE = 4
+const POSTS_PER_PAGE = 5
 
 export const metadata = genPageMetadata({ title: 'Blog' })
 

@@ -4,7 +4,7 @@ import { allBlogs } from 'contentlayer/generated'
 import Image from '@/components/Image'
 import logo from '@/data/logo.png'
 
-const POSTS_PER_PAGE = 4
+const POSTS_PER_PAGE = 5
 
 export const generateStaticParams = async () => {
   const totalPages = Math.ceil(allBlogs.length / POSTS_PER_PAGE)
