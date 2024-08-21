@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     // Remove or modify the redirection logic if you want a different behavior
-    // router.push('/about'); // Comment this out or modify it
+    router.push('/about') // Comment this out or modify it
   }, [router])
 
   return null // This component will not render anything
