@@ -53,12 +53,12 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <PageTitle>Business Analytics Projects</PageTitle>
+      <PageTitle>Data-Driven Projects</PageTitle>
       <SectionContainer>
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <div className="space-y-2 pb-8 pt-6 md:space-y-5">
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-              Demonstrating expertise in market intelligence, predictive analytics, and data-driven strategic insights
+              Full-stack projects focused on business intelligence, predictive analytics, and data-driven strategic insights
             </p>
           </div>
 
