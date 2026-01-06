@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Projects - Chaimaa Atraoui</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Project Details Section */
+        .project-detail {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 50px;
+        }
+
+        .project-detail h2 {
+            color: #1F4788;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #2E86AB;
+            padding-bottom: 10px;
+        }
+
+        .project-detail h3 {
+            color: #2E86AB;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .project-detail h4 {
+            color: #1F4788;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .project-detail p, .project-detail li {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .project-detail ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .visualization-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .visualization-item {
+            border: 2px solid #E8F4F8;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .visualization-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .visualization-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .visualization-caption {
+            padding: 15px;
+            background: #F8FAFB;
+            text-align: center;
+            font-weight: 600;
+            color: #1F4788;
+        }
+
+        /* Methodology Section */
+        .methodology {
+            background: #F8FAFB;
+            padding: 30px;
+            border-left: 5px solid #2E86AB;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+
+        .methodology h4 {
+            color: #1F4788;
+            margin-bottom: 15px;
+        }
+
+        /* Key Insights Box */
+        .insights-box {
+            background: linear-gradient(135deg, #E8F4F8 0%, #D4E9F2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 6px solid #2E86AB;
+        }
+
+        .insights-box h4 {
+            color: #1F4788;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .insights-box ul {
+            list-style: none;
+        }
+
+        .insights-box li::before {
+            content: "✓ ";
+            color: #2E86AB;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Navigation between projects */
+        .project-nav {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .project-nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background: #E8F4F8;
+            color: #1F4788;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .project-nav a:hover, .project-nav a.active {
+            background: #2E86AB;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-detail {
+                padding: 30px 20px;
+            }
+
+            .project-detail h2 {
+                font-size: 2em;
+            }
+
+            .project-nav {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2E86AB;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Project Navigation -->
+        <nav class="project-nav">
+            <a href="#project-market-dashboard" onclick="showProject('market-dashboard')">Market Dashboard</a>
+            <a href="#project-churn-prediction" onclick="showProject('churn-prediction')">Churn Prediction</a>
+            <a href="#project-viral-marketing" onclick="showProject('viral-marketing')">Viral Marketing</a>
+        </nav>
+
+        <!-- Project 1: Market Dashboard -->
+        <section id="project-market-dashboard" class="project-detail project-section">
+            <h2>Interactive Market Share Dashboard for FMCG Sector</h2>
+            
+            <img src="/projects/diagram_analysis_workflow.png" alt="Analysis Workflow" style="width: 100%; max-width: 900px; margin: 30px auto; display: block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            
+            <h3>Project Overview</h3>
+            <p>
+                This project demonstrates comprehensive market intelligence capabilities through the development 
+                of an interactive Power BI dashboard analyzing the Fast-Moving Consumer Goods (FMCG) sector. 
+                The dashboard provides real-time insights into market share dynamics, competitive positioning, 
+                and sales performance across multiple dimensions.
+            </p>
+
+            <div class="methodology">
+                <h4>Methodology</h4>
+                <ul>
+                    <li><strong>Data Collection:</strong> Aggregated market data from industry reports covering 6 months of sales performance across 3 product categories (Beverages, Snacks, Dairy) and 3 regions</li>
+                    <li><strong>Data Modeling:</strong> Cleaned and transformed data using Power Query, creating a robust star schema data model optimized for analytical queries</li>
+                    <li><strong>Dashboard Development:</strong> Designed interactive visualizations in Power BI featuring market share trends, competitive benchmarking, and regional performance analysis</li>
+                    <li><strong>Insights Generation:</strong> Developed automated KPI tracking and alert systems for significant market changes</li>
+                </ul>
+            </div>
+
+            <h3>Key Visualizations</h3>
+            <div class="visualization-gallery">
+                <div class="visualization-item">
+                    <img src="/projects/dashboard_outputs/01_market_share_trend.png" alt="Market Share Trend">
+                    <div class="visualization-caption">Market Share Trend by Brand</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/dashboard_outputs/02_market_share_by_category.png" alt="Market Share by Category">
+                    <div class="visualization-caption">Market Share by Category</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/dashboard_outputs/03_sales_revenue_by_region.png" alt="Sales Revenue">
+                    <div class="visualization-caption">Sales Revenue by Region</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/dashboard_outputs/04_competitive_intensity.png" alt="Competitive Intensity">
+                    <div class="visualization-caption">Competitive Intensity Analysis</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/dashboard_outputs/05_market_growth_rate.png" alt="Market Growth">
+                    <div class="visualization-caption">Market Growth Rate Trends</div>
+                </div>
+            </div>
+
+            <div class="insights-box">
+                <h4>Key Business Insights</h4>
+                <ul>
+                    <li>BrandA demonstrated strongest market share growth in Beverages category, increasing from 22.5% to 27.3% over 6 months</li>
+                    <li>Food & Beverage category shows highest market growth rate (6.1%) indicating strong consumer demand</li>
+                    <li>Regional analysis reveals North region as highest revenue generator with €108M total sales</li>
+                    <li>Competitive intensity remains stable across categories, suggesting mature market conditions</li>
+                    <li>Seasonal trends identified in Q2 showing 15-20% sales uplift across all categories</li>
+                </ul>
+            </div>
+
+            <h3>Technical Implementation</h3>
+            <h4>Tools & Technologies:</h4>
+            <ul>
+                <li>Power BI Desktop for dashboard development</li>
+                <li>Power Query for data transformation and ETL</li>
+                <li>Python (Pandas, Matplotlib, Seaborn) for data generation and validation</li>
+                <li>Excel for data structuring and initial analysis</li>
+            </ul>
+
+            <h3>Business Impact</h3>
+            <p>
+                This dashboard enables market intelligence analysts and business leaders to make data-driven 
+                decisions by providing immediate visibility into market dynamics. Key applications include 
+                real-time competitive monitoring, strategic planning for market expansion, performance tracking 
+                against market growth rates, and regional strategy optimization.
+            </p>
+        </section>
+
+        <!-- Project 2: Churn Prediction -->
+        <section id="project-churn-prediction" class="project-detail project-section" style="display:none;">
+            <h2>Customer Churn Prediction Model</h2>
+            
+            <h3>Project Overview</h3>
+            <p>
+                This project showcases advanced predictive analytics capabilities through the development of 
+                a machine learning model that predicts customer churn in the telecommunications industry. 
+                The model enables proactive customer retention strategies by identifying at-risk customers 
+                before they cancel their subscriptions.
+            </p>
+
+            <div class="methodology">
+                <h4>Methodology</h4>
+                <ul>
+                    <li><strong>Data Exploration:</strong> Analyzed dataset of 5,000 customers with 11 features including tenure, contract type, service usage, and billing information</li>
+                    <li><strong>Feature Engineering:</strong> Created derived features and encoded categorical variables to optimize model performance</li>
+                    <li><strong>Model Development:</strong> Trained and compared three classification algorithms (Logistic Regression, Random Forest, Gradient Boosting)</li>
+                    <li><strong>Model Evaluation:</strong> Selected Gradient Boosting as best performer based on ROC-AUC score of 0.6963</li>
+                    <li><strong>Business Impact Analysis:</strong> Quantified potential cost savings and ROI from implementing retention strategies</li>
+                </ul>
+            </div>
+
+            <h3>Model Performance</h3>
+            <div class="visualization-gallery">
+                <div class="visualization-item">
+                    <img src="/projects/model_outputs/01_model_comparison.png" alt="Model Comparison">
+                    <div class="visualization-caption">Model Performance Comparison</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/model_outputs/02_confusion_matrix.png" alt="Confusion Matrix">
+                    <div class="visualization-caption">Confusion Matrix</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/model_outputs/03_roc_curve.png" alt="ROC Curve">
+                    <div class="visualization-caption">ROC Curve Analysis</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/model_outputs/04_feature_importance.png" alt="Feature Importance">
+                    <div class="visualization-caption">Feature Importance Ranking</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/model_outputs/05_precision_recall_curve.png" alt="Precision-Recall">
+                    <div class="visualization-caption">Precision-Recall Curve</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/model_outputs/06_churn_distribution.png" alt="Churn Distribution">
+                    <div class="visualization-caption">Actual vs Predicted Distribution</div>
+                </div>
+            </div>
+
+            <div class="insights-box">
+                <h4>Key Findings</h4>
+                <ul>
+                    <li>Model achieved 64.3% accuracy and 69.6% ROC-AUC on test set</li>
+                    <li>Top predictive features: Contract Type, Tenure Months, Monthly Charges, Customer Service Calls</li>
+                    <li>Month-to-month contracts show 3x higher churn risk compared to annual contracts</li>
+                    <li>Customers with >5 service calls have 40% higher churn probability</li>
+                    <li>Gradient Boosting outperformed other algorithms across all metrics</li>
+                </ul>
+            </div>
+
+            <h3>Business Value</h3>
+            <p>
+                This predictive model provides significant business value through proactive retention (identify at-risk 
+                customers 30-60 days before churn), targeted interventions (prioritize retention efforts on high-value 
+                customers), cost optimization (reduce customer acquisition costs), and revenue protection (estimated 
+                15-20% reduction in churn rate translates to €2-3M annual revenue protection).
+            </p>
+        </section>
+
+        <!-- Project 3: Viral Marketing -->
+        <section id="project-viral-marketing" class="project-detail project-section" style="display:none;">
+            <h2>Social Media Virality Impact Analysis</h2>
+            
+            <h3>Project Overview</h3>
+            <p>
+                This strategic analysis examines how TikTok and viral video marketing impact product sales 
+                across different categories. The project analyzes 200 viral marketing campaigns to identify 
+                optimal platform-content-category combinations and quantify the ROI of viral marketing strategies.
+            </p>
+
+            <div class="methodology">
+                <h4>Research Methodology</h4>
+                <ul>
+                    <li><strong>Campaign Analysis:</strong> Examined 200 viral marketing campaigns across TikTok, Instagram Reels, and YouTube Shorts</li>
+                    <li><strong>Category Coverage:</strong> 6 product categories (Beauty, Fashion, Food & Beverage, Electronics, Home & Living, Fitness)</li>
+                    <li><strong>Content Type Analysis:</strong> Evaluated 6 content formats (Tutorial, Challenge, Unboxing, Review, Comedy, Behind-the-Scenes)</li>
+                    <li><strong>Performance Metrics:</strong> Tracked views, engagement rate, shares, sales impact, and ROI</li>
+                    <li><strong>Time-Series Analysis:</strong> 12-week tracking of viral impact on sales performance</li>
+                </ul>
+            </div>
+
+            <h3>Key Findings & Visualizations</h3>
+            <div class="visualization-gallery">
+                <div class="visualization-item">
+                    <img src="/projects/viral_analysis_outputs/01_platform_impact.png" alt="Platform Impact">
+                    <div class="visualization-caption">Sales Impact by Platform</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/viral_analysis_outputs/02_content_effectiveness.png" alt="Content Effectiveness">
+                    <div class="visualization-caption">Content Type Effectiveness</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/viral_analysis_outputs/03_category_viral_potential.png" alt="Category Viral Potential">
+                    <div class="visualization-caption">Product Category Viral Potential</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/viral_analysis_outputs/04_engagement_sales_correlation.png" alt="Engagement vs Sales">
+                    <div class="visualization-caption">Engagement vs Sales Correlation</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/viral_analysis_outputs/05_viral_impact_timeline.png" alt="Viral Impact Timeline">
+                    <div class="visualization-caption">Viral Impact Over Time</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/viral_analysis_outputs/06_roi_distribution.png" alt="ROI Distribution">
+                    <div class="visualization-caption">ROI Distribution by Category</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="/projects/viral_analysis_outputs/07_strategy_matrix.png" alt="Strategy Matrix">
+                    <div class="visualization-caption">Strategic Recommendation Matrix</div>
+                </div>
+            </div>
+
+            <div class="insights-box">
+                <h4>Strategic Insights</h4>
+                <ul>
+                    <li><strong>TikTok Dominance:</strong> TikTok delivers highest average sales increase (85%) compared to Instagram Reels (72%) and YouTube Shorts (58%)</li>
+                    <li><strong>Food & Beverage Leadership:</strong> F&B category shows 80-150% sales lift with 78% viral success rate</li>
+                    <li><strong>Challenge Content Wins:</strong> Challenge-based content drives 95% higher engagement and 120% sales increase</li>
+                    <li><strong>Viral Duration:</strong> Successful campaigns show sustained 3-5 week sales lift with peak impact in week 2-3</li>
+                    <li><strong>ROI Excellence:</strong> Viral campaigns (50%+ sales increase) achieve 285% average ROI</li>
+                </ul>
+            </div>
+
+            <h3>Business Impact</h3>
+            <p>
+                This analysis provides actionable intelligence for marketing teams to optimize marketing budget 
+                (allocate resources to highest-ROI platform-content combinations), reduce risk (understand which 
+                strategies work for specific product types), accelerate growth (leverage viral marketing to achieve 
+                50-150% sales increases), and gain competitive advantage (stay ahead of market trends in digital marketing).
+            </p>
+        </section>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Show specific project based on hash
+        function showProject(projectId) {
+            // Hide all projects
+            document.querySelectorAll('.project-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Remove active class from all nav links
+            document.querySelectorAll('.project-nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected project
+            const projectSection = document.getElementById('project-' + projectId);
+            if (projectSection) {
+                projectSection.style.display = 'block';
+                
+                // Add active class to corresponding nav link
+                const activeLink = document.querySelector(`.project-nav a[href="#project-${projectId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Handle initial load based on hash
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const projectId = hash.replace('#project-', '');
+                showProject(projectId);
+            } else {
+                // Show first project by default
+                showProject('market-dashboard');
+            }
+        });
+
+        // Handle hash changes
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const projectId = hash.replace('#project-', '');
+                showProject(projectId);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+import Link from 'next/link';
+import Image from 'next/image';
+
+export const metadata = {
+  title: 'Business Analytics Projects | Chaimaa Atraoui',
+  description: 'Market Intelligence and Data Analytics portfolio showcasing dashboard development, machine learning, and strategic analysis projects.',
+};
+
+export default function ProjectsPage() {
+  const projects = [
+    {
+      id: 'market-dashboard',
+      title: 'Interactive Market Share Dashboard',
+      description: 'Comprehensive Power BI dashboard analyzing FMCG market dynamics across multiple product categories, regions, and time periods. Provides real-time competitive intelligence and market performance tracking.',
+      image: '/projects/hero_market_dashboard.png',
+      tags: ['Power BI', 'Market Analysis', 'FMCG', 'Competitive Intelligence'],
+      metrics: {
+        data: '€108M sales analyzed',
+        scope: '5 brands, 3 regions',
+        impact: '21% growth identified'
+      },
+      link: '/projects/market-dashboard'
+    },
+    {
+      id: 'churn-prediction',
+      title: 'Customer Churn Prediction Model',
+      description: 'Advanced machine learning model predicting customer churn in telecommunications. Achieved 69.6% ROC-AUC using Gradient Boosting, enabling proactive retention strategies and customer lifetime value optimization.',
+      image: '/projects/hero_churn_prediction.png',
+      tags: ['Machine Learning', 'Python', 'Predictive Analytics', 'Customer Retention'],
+      metrics: {
+        accuracy: '69.6% ROC-AUC',
+        data: '5,000 customers',
+        impact: '€2-3M revenue protection'
+      },
+      link: '/projects/churn-prediction'
+    },
+    {
+      id: 'viral-marketing',
+      title: 'Social Media Virality Impact Analysis',
+      description: 'Strategic analysis of TikTok and viral video marketing effectiveness across product categories. Identifies optimal platform-content combinations and quantifies ROI for viral marketing campaigns.',
+      image: '/projects/hero_viral_marketing.png',
+      tags: ['Social Media Analytics', 'Marketing Strategy', 'TikTok', 'ROI Analysis'],
+      metrics: {
+        scope: '200 campaigns analyzed',
+        impact: '85% avg sales increase',
+        roi: '285% average ROI'
+      },
+      link: '/projects/viral-marketing'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Header Section */}
+      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-5xl font-bold mb-4">Business Analytics Projects</h1>
+          <p className="text-xl text-blue-100 max-w-3xl">
+            Demonstrating expertise in market intelligence, predictive analytics, and data-driven strategic insights
+          </p>
+        </div>
+      </section>
+
+      {/* Projects Grid */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <Link 
+              key={project.id}
+              href={project.link}
+              className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+            >
+              {/* Project Image */}
+              <div className="relative h-48 bg-gradient-to-br from-blue-100 to-blue-50">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Project Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">
+                  {project.title}
+                </h3>
+                
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  {project.description}
+                </p>
+
+                {/* Metrics */}
+                <div className="space-y-2 mb-4">
+                  {Object.entries(project.metrics).map(([key, value]) => (
+                    <div key={key} className="flex items-center text-sm">
+                      <span className="text-blue-600 font-semibold mr-2">✓</span>
+                      <span className="text-gray-700">{value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* View Project Link */}
+                <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800">
+                  View Project Details
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="bg-gray-50 py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">About These Projects</h2>
+          <div className="prose prose-lg text-gray-700">
+            <p className="mb-4">
+              These projects demonstrate comprehensive market intelligence capabilities, combining advanced 
+              analytical techniques with strategic business thinking. Each project showcases:
+            </p>
+            <ul className="space-y-2 mb-6">
+              <li className="flex items-start">
+                <span className="text-blue-600 font-bold mr-2">→</span>
+                <span><strong>Technical Proficiency:</strong> Power BI, Python, Machine Learning, Statistical Analysis</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 font-bold mr-2">→</span>
+                <span><strong>Business Acumen:</strong> Market analysis, ROI calculation, strategic recommendations</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 font-bold mr-2">→</span>
+                <span><strong>Communication Skills:</strong> Clear visualizations, actionable insights, stakeholder presentations</span>
+              </li>
+            </ul>
+            <p>
+              All projects include real data analysis, professional visualizations, and quantified business impact.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="max-w-4xl mx-auto px-4 py-16 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Interested in Working Together?</h2>
+        <p className="text-lg text-gray-600 mb-8">
+          Let's discuss how data-driven insights can drive your business forward.
+        </p>
+        <Link
+          href="/contact"
+          className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+        >
+          Get In Touch
+        </Link>
+      </section>
+    </div>
+  );
+}

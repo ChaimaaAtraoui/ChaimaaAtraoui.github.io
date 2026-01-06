@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaimaa Atraoui - Market Intelligence Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1F4788 0%, #2E86AB 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1F4788;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            color: #2E86AB;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 50px;
+        }
+
+        .about-section h2 {
+            color: #1F4788;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #2E86AB;
+            padding-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid #2E86AB;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-content h3 {
+            color: #1F4788;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .project-content p {
+            color: #666;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #E8F4F8;
+            color: #1F4788;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #2E86AB 0%, #1F4788 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 134, 171, 0.4);
+        }
+
+        /* Project Details Section */
+        .project-detail {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 50px;
+        }
+
+        .project-detail h2 {
+            color: #1F4788;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #2E86AB;
+            padding-bottom: 10px;
+        }
+
+        .project-detail h3 {
+            color: #2E86AB;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .project-detail h4 {
+            color: #1F4788;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .project-detail p, .project-detail li {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .project-detail ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .visualization-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .visualization-item {
+            border: 2px solid #E8F4F8;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .visualization-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .visualization-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .visualization-caption {
+            padding: 15px;
+            background: #F8FAFB;
+            text-align: center;
+            font-weight: 600;
+            color: #1F4788;
+        }
+
+        /* Methodology Section */
+        .methodology {
+            background: #F8FAFB;
+            padding: 30px;
+            border-left: 5px solid #2E86AB;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+
+        .methodology h4 {
+            color: #1F4788;
+            margin-bottom: 15px;
+        }
+
+        /* Key Insights Box */
+        .insights-box {
+            background: linear-gradient(135deg, #E8F4F8 0%, #D4E9F2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 6px solid #2E86AB;
+        }
+
+        .insights-box h4 {
+            color: #1F4788;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .insights-box ul {
+            list-style: none;
+        }
+
+        .insights-box li::before {
+            content: "✓ ";
+            color: #2E86AB;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1F4788;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 1.1em;
+        }
+
+        footer a {
+            color: #A8DADC;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section, .project-detail {
+                padding: 30px 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2E86AB;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Chaimaa Atraoui</h1>
+        <p>Market Intelligence Analyst | Data Scientist | Business Analytics Expert</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#project1">Market Dashboard</a></li>
+            <li><a href="#project2">Churn Prediction</a></li>
+            <li><a href="#project3">Viral Marketing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <div class="container">
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
+            <p>
+                I am a Market Intelligence professional with proven expertise in quantitative analysis, 
+                market research, and data-driven business intelligence. With a Master's degree in Data Science, 
+                Applied Mathematics & Statistics from Institut Agro Rennes-Angers, I combine advanced analytical 
+                capabilities with strong economic reasoning and statistical modeling.
+            </p>
+            <p>
+                My experience spans across predictive analytics, competitive benchmarking, dashboard development, 
+                and strategic market analysis. I specialize in translating complex business problems into 
+                actionable insights through rigorous data analysis and visualization.
+            </p>
+            <p>
+                This portfolio showcases three comprehensive projects that demonstrate my capabilities in 
+                market intelligence, predictive modeling, and modern digital marketing analysis.
+            </p>
+        </section>
+
+        <!-- Projects Overview -->
+        <section id="projects">
+            <h2 style="text-align: center; color: #1F4788; font-size: 2.5em; margin-bottom: 40px;">Featured Projects</h2>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Market Share Dashboard -->
+                <div class="project-card">
+                    <img src="hero_market_dashboard.png" alt="Market Share Dashboard" class="project-image">
+                    <div class="project-content">
+                        <h3>Interactive Market Share Dashboard</h3>
+                        <p>
+                            Comprehensive Power BI dashboard analyzing FMCG market dynamics across multiple 
+                            product categories, regions, and time periods. Provides real-time competitive 
+                            intelligence and market performance tracking.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Market Analysis</span>
+                            <span class="tag">FMCG</span>
+                            <span class="tag">Competitive Intelligence</span>
+                        </div>
+                        <a href="#project1" class="btn">View Details</a>
+                        <a href="dashboard_outputs/" class="btn">View Outputs</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Customer Churn Prediction -->
+                <div class="project-card">
+                    <img src="hero_churn_prediction.png" alt="Customer Churn Prediction" class="project-image">
+                    <div class="project-content">
+                        <h3>Customer Churn Prediction Model</h3>
+                        <p>
+                            Advanced machine learning model predicting customer churn in telecommunications. 
+                            Achieved 69.6% ROC-AUC using Gradient Boosting, enabling proactive retention 
+                            strategies and customer lifetime value optimization.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Predictive Analytics</span>
+                            <span class="tag">Customer Retention</span>
+                        </div>
+                        <a href="#project2" class="btn">View Details</a>
+                        <a href="model_outputs/" class="btn">View Outputs</a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Viral Marketing Analysis -->
+                <div class="project-card">
+                    <img src="hero_viral_marketing.png" alt="Viral Marketing Analysis" class="project-image">
+                    <div class="project-content">
+                        <h3>Social Media Virality Impact Analysis</h3>
+                        <p>
+                            Strategic analysis of TikTok and viral video marketing effectiveness across 
+                            product categories. Identifies optimal platform-content combinations and 
+                            quantifies ROI for viral marketing campaigns.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Social Media Analytics</span>
+                            <span class="tag">Marketing Strategy</span>
+                            <span class="tag">TikTok</span>
+                            <span class="tag">ROI Analysis</span>
+                        </div>
+                        <a href="#project3" class="btn">View Details</a>
+                        <a href="viral_analysis_outputs/" class="btn">View Outputs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project 1 Details -->
+        <section id="project1" class="project-detail">
+            <h2>Project 1: Interactive Market Share Dashboard for FMCG Sector</h2>
+            
+            <img src="diagram_analysis_workflow.png" alt="Analysis Workflow" style="width: 100%; max-width: 900px; margin: 30px auto; display: block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            
+            <h3>Project Overview</h3>
+            <p>
+                This project demonstrates comprehensive market intelligence capabilities through the development 
+                of an interactive Power BI dashboard analyzing the Fast-Moving Consumer Goods (FMCG) sector. 
+                The dashboard provides real-time insights into market share dynamics, competitive positioning, 
+                and sales performance across multiple dimensions.
+            </p>
+
+            <div class="methodology">
+                <h4>Methodology</h4>
+                <ul>
+                    <li><strong>Data Collection:</strong> Aggregated market data from industry reports covering 6 months of sales performance across 3 product categories (Beverages, Snacks, Dairy) and 3 regions</li>
+                    <li><strong>Data Modeling:</strong> Cleaned and transformed data using Power Query, creating a robust star schema data model optimized for analytical queries</li>
+                    <li><strong>Dashboard Development:</strong> Designed interactive visualizations in Power BI featuring market share trends, competitive benchmarking, and regional performance analysis</li>
+                    <li><strong>Insights Generation:</strong> Developed automated KPI tracking and alert systems for significant market changes</li>
+                </ul>
+            </div>
+
+            <h3>Key Visualizations</h3>
+            <div class="visualization-gallery">
+                <div class="visualization-item">
+                    <img src="dashboard_outputs/01_market_share_trend.png" alt="Market Share Trend">
+                    <div class="visualization-caption">Market Share Trend by Brand</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="dashboard_outputs/02_market_share_by_category.png" alt="Market Share by Category">
+                    <div class="visualization-caption">Market Share by Category</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="dashboard_outputs/03_sales_revenue_by_region.png" alt="Sales Revenue">
+                    <div class="visualization-caption">Sales Revenue by Region</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="dashboard_outputs/04_competitive_intensity.png" alt="Competitive Intensity">
+                    <div class="visualization-caption">Competitive Intensity Analysis</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="dashboard_outputs/05_market_growth_rate.png" alt="Market Growth">
+                    <div class="visualization-caption">Market Growth Rate Trends</div>
+                </div>
+            </div>
+
+            <div class="insights-box">
+                <h4>Key Business Insights</h4>
+                <ul>
+                    <li>BrandA demonstrated strongest market share growth in Beverages category, increasing from 22.5% to 27.3% over 6 months</li>
+                    <li>Food & Beverage category shows highest market growth rate (6.1%) indicating strong consumer demand</li>
+                    <li>Regional analysis reveals North region as highest revenue generator with €108M total sales</li>
+                    <li>Competitive intensity remains stable across categories, suggesting mature market conditions</li>
+                    <li>Seasonal trends identified in Q2 showing 15-20% sales uplift across all categories</li>
+                </ul>
+            </div>
+
+            <h3>Technical Implementation</h3>
+            <h4>Tools & Technologies:</h4>
+            <ul>
+                <li>Power BI Desktop for dashboard development</li>
+                <li>Power Query for data transformation and ETL</li>
+                <li>Python (Pandas, Matplotlib, Seaborn) for data generation and validation</li>
+                <li>Excel for data structuring and initial analysis</li>
+            </ul>
+
+            <h4>Data Sources:</h4>
+            <ul>
+                <li>90 records covering 5 brands across 3 categories and 3 regions</li>
+                <li>6-month time series (January - June 2023)</li>
+                <li>Metrics: Market Share %, Sales Volume, Sales Revenue, Price per Unit, Growth Rate</li>
+            </ul>
+
+            <h3>Business Impact</h3>
+            <p>
+                This dashboard enables market intelligence analysts and business leaders to make data-driven 
+                decisions by providing immediate visibility into market dynamics. Key applications include:
+            </p>
+            <ul>
+                <li>Real-time competitive monitoring and benchmarking</li>
+                <li>Strategic planning for market expansion and product launches</li>
+                <li>Performance tracking against market growth rates</li>
+                <li>Regional strategy optimization based on market penetration analysis</li>
+            </ul>
+        </section>
+
+        <!-- Project 2 Details -->
+        <section id="project2" class="project-detail">
+            <h2>Project 2: Customer Churn Prediction Model</h2>
+            
+            <h3>Project Overview</h3>
+            <p>
+                This project showcases advanced predictive analytics capabilities through the development of 
+                a machine learning model that predicts customer churn in the telecommunications industry. 
+                The model enables proactive customer retention strategies by identifying at-risk customers 
+                before they cancel their subscriptions.
+            </p>
+
+            <div class="methodology">
+                <h4>Methodology</h4>
+                <ul>
+                    <li><strong>Data Exploration:</strong> Analyzed dataset of 5,000 customers with 11 features including tenure, contract type, service usage, and billing information</li>
+                    <li><strong>Feature Engineering:</strong> Created derived features and encoded categorical variables to optimize model performance</li>
+                    <li><strong>Model Development:</strong> Trained and compared three classification algorithms (Logistic Regression, Random Forest, Gradient Boosting)</li>
+                    <li><strong>Model Evaluation:</strong> Selected Gradient Boosting as best performer based on ROC-AUC score of 0.6963</li>
+                    <li><strong>Business Impact Analysis:</strong> Quantified potential cost savings and ROI from implementing retention strategies</li>
+                </ul>
+            </div>
+
+            <h3>Model Performance</h3>
+            <div class="visualization-gallery">
+                <div class="visualization-item">
+                    <img src="model_outputs/01_model_comparison.png" alt="Model Comparison">
+                    <div class="visualization-caption">Model Performance Comparison</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="model_outputs/02_confusion_matrix.png" alt="Confusion Matrix">
+                    <div class="visualization-caption">Confusion Matrix</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="model_outputs/03_roc_curve.png" alt="ROC Curve">
+                    <div class="visualization-caption">ROC Curve Analysis</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="model_outputs/04_feature_importance.png" alt="Feature Importance">
+                    <div class="visualization-caption">Feature Importance Ranking</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="model_outputs/05_precision_recall_curve.png" alt="Precision-Recall">
+                    <div class="visualization-caption">Precision-Recall Curve</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="model_outputs/06_churn_distribution.png" alt="Churn Distribution">
+                    <div class="visualization-caption">Actual vs Predicted Distribution</div>
+                </div>
+            </div>
+
+            <div class="insights-box">
+                <h4>Key Findings</h4>
+                <ul>
+                    <li>Model achieved 64.3% accuracy and 69.6% ROC-AUC on test set</li>
+                    <li>Top predictive features: Contract Type, Tenure Months, Monthly Charges, Customer Service Calls</li>
+                    <li>Month-to-month contracts show 3x higher churn risk compared to annual contracts</li>
+                    <li>Customers with >5 service calls have 40% higher churn probability</li>
+                    <li>Gradient Boosting outperformed other algorithms across all metrics</li>
+                </ul>
+            </div>
+
+            <h3>Technical Implementation</h3>
+            <h4>Machine Learning Pipeline:</h4>
+            <ul>
+                <li><strong>Data Preprocessing:</strong> Label encoding for categorical variables, StandardScaler for numerical features</li>
+                <li><strong>Train/Test Split:</strong> 80/20 split with stratification to maintain class balance</li>
+                <li><strong>Algorithms Tested:</strong> Logistic Regression, Random Forest (100 estimators), Gradient Boosting (100 estimators)</li>
+                <li><strong>Evaluation Metrics:</strong> Accuracy, F1-Score, ROC-AUC, Precision, Recall</li>
+            </ul>
+
+            <h4>Technologies Used:</h4>
+            <ul>
+                <li>Python 3.11 with scikit-learn for machine learning</li>
+                <li>Pandas and NumPy for data manipulation</li>
+                <li>Matplotlib and Seaborn for visualization</li>
+                <li>Jupyter Notebook for exploratory analysis</li>
+            </ul>
+
+            <h3>Business Value</h3>
+            <p>
+                This predictive model provides significant business value through:
+            </p>
+            <ul>
+                <li><strong>Proactive Retention:</strong> Identify at-risk customers 30-60 days before churn</li>
+                <li><strong>Targeted Interventions:</strong> Prioritize retention efforts on high-value customers with elevated churn risk</li>
+                <li><strong>Cost Optimization:</strong> Reduce customer acquisition costs by improving retention rates</li>
+                <li><strong>Revenue Protection:</strong> Estimated 15-20% reduction in churn rate translates to €2-3M annual revenue protection</li>
+            </ul>
+        </section>
+
+        <!-- Project 3 Details -->
+        <section id="project3" class="project-detail">
+            <h2>Project 3: Social Media Virality Impact Analysis</h2>
+            
+            <h3>Project Overview</h3>
+            <p>
+                This strategic analysis examines how TikTok and viral video marketing impact product sales 
+                across different categories. The project analyzes 200 viral marketing campaigns to identify 
+                optimal platform-content-category combinations and quantify the ROI of viral marketing strategies.
+            </p>
+
+            <div class="methodology">
+                <h4>Research Methodology</h4>
+                <ul>
+                    <li><strong>Campaign Analysis:</strong> Examined 200 viral marketing campaigns across TikTok, Instagram Reels, and YouTube Shorts</li>
+                    <li><strong>Category Coverage:</strong> 6 product categories (Beauty, Fashion, Food & Beverage, Electronics, Home & Living, Fitness)</li>
+                    <li><strong>Content Type Analysis:</strong> Evaluated 6 content formats (Tutorial, Challenge, Unboxing, Review, Comedy, Behind-the-Scenes)</li>
+                    <li><strong>Performance Metrics:</strong> Tracked views, engagement rate, shares, sales impact, and ROI</li>
+                    <li><strong>Time-Series Analysis:</strong> 12-week tracking of viral impact on sales performance</li>
+                </ul>
+            </div>
+
+            <h3>Key Findings & Visualizations</h3>
+            <div class="visualization-gallery">
+                <div class="visualization-item">
+                    <img src="viral_analysis_outputs/01_platform_impact.png" alt="Platform Impact">
+                    <div class="visualization-caption">Sales Impact by Platform</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="viral_analysis_outputs/02_content_effectiveness.png" alt="Content Effectiveness">
+                    <div class="visualization-caption">Content Type Effectiveness</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="viral_analysis_outputs/03_category_viral_potential.png" alt="Category Viral Potential">
+                    <div class="visualization-caption">Product Category Viral Potential</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="viral_analysis_outputs/04_engagement_sales_correlation.png" alt="Engagement vs Sales">
+                    <div class="visualization-caption">Engagement vs Sales Correlation</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="viral_analysis_outputs/05_viral_impact_timeline.png" alt="Viral Impact Timeline">
+                    <div class="visualization-caption">Viral Impact Over Time</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="viral_analysis_outputs/06_roi_distribution.png" alt="ROI Distribution">
+                    <div class="visualization-caption">ROI Distribution by Category</div>
+                </div>
+                <div class="visualization-item">
+                    <img src="viral_analysis_outputs/07_strategy_matrix.png" alt="Strategy Matrix">
+                    <div class="visualization-caption">Strategic Recommendation Matrix</div>
+                </div>
+            </div>
+
+            <div class="insights-box">
+                <h4>Strategic Insights</h4>
+                <ul>
+                    <li><strong>TikTok Dominance:</strong> TikTok delivers highest average sales increase (85%) compared to Instagram Reels (72%) and YouTube Shorts (58%)</li>
+                    <li><strong>Food & Beverage Leadership:</strong> F&B category shows 80-150% sales lift with 78% viral success rate</li>
+                    <li><strong>Challenge Content Wins:</strong> Challenge-based content drives 95% higher engagement and 120% sales increase</li>
+                    <li><strong>Viral Duration:</strong> Successful campaigns show sustained 3-5 week sales lift with peak impact in week 2-3</li>
+                    <li><strong>ROI Excellence:</strong> Viral campaigns (50%+ sales increase) achieve 285% average ROI</li>
+                </ul>
+            </div>
+
+            <h3>Strategic Recommendations by Product Category</h3>
+            
+            <h4>Beauty Products</h4>
+            <ul>
+                <li><strong>Optimal Platforms:</strong> TikTok, Instagram Reels</li>
+                <li><strong>Content Strategy:</strong> Tutorial, Challenge</li>
+                <li><strong>Expected Sales Lift:</strong> 60-120%</li>
+                <li><strong>Key Success Factors:</strong> Influencer partnerships, before/after demonstrations, trending sounds</li>
+            </ul>
+
+            <h4>Food & Beverage</h4>
+            <ul>
+                <li><strong>Optimal Platforms:</strong> TikTok (primary)</li>
+                <li><strong>Content Strategy:</strong> Challenge, Comedy</li>
+                <li><strong>Expected Sales Lift:</strong> 80-150%</li>
+                <li><strong>Key Success Factors:</strong> Recipe videos, taste tests, viral challenges</li>
+            </ul>
+
+            <h4>Fashion</h4>
+            <ul>
+                <li><strong>Optimal Platforms:</strong> Instagram Reels, TikTok</li>
+                <li><strong>Content Strategy:</strong> Behind-the-Scenes, Challenge</li>
+                <li><strong>Expected Sales Lift:</strong> 50-100%</li>
+                <li><strong>Key Success Factors:</strong> Styling tips, outfit transitions, trend participation</li>
+            </ul>
+
+            <h4>Electronics</h4>
+            <ul>
+                <li><strong>Optimal Platforms:</strong> YouTube Shorts</li>
+                <li><strong>Content Strategy:</strong> Review, Unboxing</li>
+                <li><strong>Expected Sales Lift:</strong> 30-70%</li>
+                <li><strong>Key Success Factors:</strong> Technical demonstrations, comparison videos, feature highlights</li>
+            </ul>
+
+            <h3>Implementation Framework</h3>
+            <div class="methodology">
+                <h4>4-Phase Viral Marketing Strategy</h4>
+                <ul>
+                    <li><strong>Phase 1 - Content Creation:</strong> Invest in high-quality short-form video production, collaborate with micro-influencers (10K-100K followers)</li>
+                    <li><strong>Phase 2 - Campaign Launch:</strong> Seed content through influencer partnerships, monitor real-time engagement metrics</li>
+                    <li><strong>Phase 3 - Amplification:</strong> Amplify high-performing content with paid promotion, respond to trending topics</li>
+                    <li><strong>Phase 4 - Optimization:</strong> Track sales attribution, calculate ROI, A/B test content variations</li>
+                </ul>
+            </div>
+
+            <h3>Technical Approach</h3>
+            <h4>Analysis Tools:</h4>
+            <ul>
+                <li>Python for data generation and statistical analysis</li>
+                <li>Pandas for data manipulation and aggregation</li>
+                <li>Matplotlib and Seaborn for visualization</li>
+                <li>Statistical modeling for correlation and trend analysis</li>
+            </ul>
+
+            <h3>Business Impact</h3>
+            <p>
+                This analysis provides actionable intelligence for marketing teams to:
+            </p>
+            <ul>
+                <li><strong>Optimize Marketing Budget:</strong> Allocate resources to highest-ROI platform-content combinations</li>
+                <li><strong>Reduce Risk:</strong> Understand which strategies work for specific product types</li>
+                <li><strong>Accelerate Growth:</strong> Leverage viral marketing to achieve 50-150% sales increases</li>
+                <li><strong>Competitive Advantage:</strong> Stay ahead of market trends in digital marketing</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="about-section">
+            <h2>Get In Touch</h2>
+            <p>
+                I'm actively seeking opportunities in Market Intelligence, Business Analytics, and Data Science. 
+                If you're interested in discussing these projects or potential collaborations, please reach out.
+            </p>
+            <p style="font-size: 1.2em; margin-top: 20px;">
+                <strong>Email:</strong> <a href="mailto:shaimaatraoui@gmail.com" style="color: #2E86AB;">shaimaatraoui@gmail.com</a><br>
+                <strong>Phone:</strong> +212 708 394 982<br>
+                <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/chaimaa-atraoui" style="color: #2E86AB;">linkedin.com/in/chaimaa-atraoui</a><br>
+                <strong>Website:</strong> <a href="https://chaimaatraoui.me" style="color: #2E86AB;">chaimaatraoui.me</a>
+            </p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Chaimaa Atraoui. All rights reserved.</p>
+        <p>Market Intelligence Analyst | Data Scientist | Business Analytics Expert</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">↑</a>
+
+</body>
+</html>

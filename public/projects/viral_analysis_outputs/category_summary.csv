@@ -1,0 +1,9 @@
+,Sales_Increase_Pct,Sales_Increase_Pct,Sales_Increase_Pct,ROI_Pct,ROI_Pct,Engagement_Rate,Went_Viral
+,mean,median,std,mean,median,mean,mean
+Product_Category,,,,,,,
+Beauty,105.86,90.99,74.8,303.04,218.4,12.14,0.77
+Electronics,64.61,56.8,41.09,198.24,142.13,9.11,0.59
+Fashion,51.01,43.42,33.17,147.17,121.55,8.85,0.45
+Fitness,76.26,59.96,64.04,256.83,162.4,10.05,0.64
+Food & Beverage,146.0,143.92,82.19,518.74,459.16,16.26,0.84
+Home & Living,49.32,44.1,32.34,138.86,101.01,7.8,0.44
