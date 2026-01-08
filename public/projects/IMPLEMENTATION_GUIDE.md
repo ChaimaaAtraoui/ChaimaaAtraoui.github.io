@@ -113,7 +113,7 @@ project_files/
 
 ---
 
-## 📊 Project Details & Talking Points
+##  Project Details & Talking Points
 
 ### Project 1: Market Share Dashboard
 
@@ -281,7 +281,7 @@ Answer using Project 3:
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Images Not Loading
 
@@ -309,7 +309,7 @@ Answer using Project 3:
 
 ---
 
-## 📈 Next Steps After Deployment
+## Next Steps After Deployment
 
 ### 1. Add Google Analytics (Optional)
 
@@ -370,7 +370,7 @@ If you encounter any issues during deployment:
 
 ---
 
-## 🎯 Success Metrics
+##  Success Metrics
 
 Your portfolio deployment is successful when:
 
