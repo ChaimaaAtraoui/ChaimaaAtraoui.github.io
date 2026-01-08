@@ -2,24 +2,32 @@
 
 import { usePathname, useSearchParams } from 'next/navigation'
 import Script from 'next/script'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 
 const GA_MEASUREMENT_ID = 'G-E45GDPSDW5'
 
-export default function GoogleAnalytics() {
+function AnalyticsTracker() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    if (pathname && typeof window !== 'undefined') {
-      const gtag = (window as typeof window & { gtag?: (...args: unknown[]) => void }).gtag
-      if (gtag) {
-        const url = pathname + (searchParams?.toString() ? `?${searchParams}` : '')
-        gtag('config', GA_MEASUREMENT_ID, { page_path: url })
+    if (pathname) {
+      const url = pathname + (searchParams?.toString() ? `?${searchParams}` : '')
+      
+      // Send pageview with custom event
+      if (typeof window !== 'undefined' && 'gtag' in window) {
+        // @ts-ignore
+        window.gtag('config', GA_MEASUREMENT_ID, {
+          page_path: url,
+        })
       }
     }
   }, [pathname, searchParams])
 
+  return null
+}
+
+export default function GoogleAnalytics() {
   return (
     <>
       <Script
@@ -34,6 +42,9 @@ export default function GoogleAnalytics() {
           gtag('config', '${GA_MEASUREMENT_ID}');
         `}
       </Script>
+      <Suspense fallback={null}>
+        <AnalyticsTracker />
+      </Suspense>
     </>
   )
 }
