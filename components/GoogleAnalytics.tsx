@@ -6,21 +6,17 @@ import { useEffect } from 'react'
 
 const GA_MEASUREMENT_ID = 'G-E45GDPSDW5'
 
-declare global {
-  interface Window {
-    gtag: (command: string, ...args: unknown[]) => void
-    dataLayer: unknown[]
-  }
-}
-
 export default function GoogleAnalytics() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    if (pathname && typeof window !== 'undefined' && window.gtag) {
-      const url = pathname + (searchParams?.toString() ? `?${searchParams}` : '')
-      window.gtag('config', GA_MEASUREMENT_ID, { page_path: url })
+    if (pathname && typeof window !== 'undefined') {
+      const gtag = (window as typeof window & { gtag?: (...args: unknown[]) => void }).gtag
+      if (gtag) {
+        const url = pathname + (searchParams?.toString() ? `?${searchParams}` : '')
+        gtag('config', GA_MEASUREMENT_ID, { page_path: url })
+      }
     }
   }, [pathname, searchParams])
 
