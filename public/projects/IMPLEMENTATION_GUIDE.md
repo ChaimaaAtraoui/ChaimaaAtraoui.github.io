@@ -23,10 +23,6 @@ project_files/
 │   ├── 03_sales_revenue_by_region.png
 │   ├── 04_competitive_intensity.png
 │   ├── 05_market_growth_rate.png
-│   ├── brand_performance_summary.csv
-│   ├── category_performance_summary.csv
-│   ├── regional_performance_summary.csv
-│   └── market_share_timeseries.csv
 │
 ├── model_outputs/                  # Project 2 outputs
 │   ├── 01_model_comparison.png
@@ -35,9 +31,6 @@ project_files/
 │   ├── 04_feature_importance.png
 │   ├── 05_precision_recall_curve.png
 │   ├── 06_churn_distribution.png
-│   ├── classification_report.txt
-│   ├── predictions.csv
-│   └── model_summary.csv
 │
 ├── viral_analysis_outputs/         # Project 3 outputs
 │   ├── 01_platform_impact.png
@@ -47,15 +40,6 @@ project_files/
 │   ├── 05_viral_impact_timeline.png
 │   ├── 06_roi_distribution.png
 │   ├── 07_strategy_matrix.png
-│   ├── insights_report.txt
-│   ├── viral_campaigns_data.csv
-│   └── viral_timeseries_data.csv
-│
-├── market_share_data.csv           # Source data for Project 1
-├── customer_churn_dataset.csv      # Source data for Project 2
-├── generate_dashboard.py           # Script to regenerate Project 1
-├── churn_prediction_model.py       # Script to regenerate Project 2
-└── viral_marketing_analysis.py     # Script to regenerate Project 3
 ```
 
 ---

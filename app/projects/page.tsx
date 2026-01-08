@@ -5,7 +5,7 @@ import PageTitle from '@/components/PageTitle';
 
 export const metadata = {
   title: 'Business Analytics Projects | Chaimaa Atraoui',
-  description: 'Market Intelligence and Data Analytics portfolio showcasing dashboard development, machine learning, and strategic analysis projects.',
+  description: 'Comprehensive data science and analytics portfolio showcasing expertise in machine learning, business intelligence, and data-driven strategic insights.',
 };
 
 export default function ProjectsPage() {
@@ -48,17 +48,108 @@ export default function ProjectsPage() {
         roi: '285% average ROI'
       },
       link: '/projects/viral-marketing'
+    },
+    {
+      id: 'ab-testing-platform',
+      title: 'E-commerce A/B Testing & Conversion Optimization',
+      description: 'Designed and analyzed 15+ A/B tests for an e-commerce platform, optimizing checkout flow, pricing strategies, and UI elements. Implemented Bayesian A/B testing framework achieving 23% increase in conversion rate.',
+      image: '/projects/hero_ab_testing.png',
+      tags: ['A/B Testing', 'Statistical Analysis', 'Python', 'Experimentation'],
+      metrics: {
+        tests: '15+ experiments conducted',
+        conversion: '23% conversion increase',
+        revenue: '€1.2M annual revenue impact'
+      },
+      link: '/projects/ab-testing-platform'
+    },
+    {
+      id: 'sentiment-analysis-nlp',
+      title: 'Multi-Language Sentiment Analysis & Topic Modeling',
+      description: 'NLP system analyzing 500K+ customer reviews across 12 languages using fine-tuned BERT models. Achieved 91% sentiment accuracy and identified 5 critical product issues, leading to 18-point NPS improvement.',
+      image: '/projects/hero_sentiment_analysis.png',
+      tags: ['NLP', 'BERT', 'Python', 'Topic Modeling'],
+      metrics: {
+        accuracy: '91% sentiment accuracy',
+        scale: '500K+ reviews, 12 languages',
+        impact: '+18 NPS improvement'
+      },
+      link: '/projects/sentiment-analysis-nlp'
+    },
+    {
+      id: 'clv-prediction',
+      title: 'Customer Lifetime Value Prediction & Segmentation',
+      description: 'Probabilistic CLV model for 250K+ customers using BG/NBD and Gamma-Gamma models. Enabled targeted retention strategies reducing churn by 28% in high-value segments and achieving 3.4x marketing ROI.',
+      image: '/projects/hero_clv_prediction.png',
+      tags: ['Predictive Analytics', 'Customer Segmentation', 'Python', 'BG/NBD'],
+      metrics: {
+        customers: '250K+ customers analyzed',
+        churn: '28% churn reduction',
+        roi: '3.4x marketing ROI'
+      },
+      link: '/projects/clv-prediction'
+    },
+    {
+      id: 'recommendation-engine',
+      title: 'Hybrid Recommendation System with Deep Learning',
+      description: 'Production-scale recommendation engine serving 2M+ users using two-tower neural network architecture. Achieved 34% CTR increase with sub-50ms inference latency through hybrid collaborative filtering approach.',
+      image: '/projects/hero_recommendation_engine.png',
+      tags: ['Deep Learning', 'Neural Networks', 'Python', 'Production ML'],
+      metrics: {
+        users: '2M+ users served',
+        ctr: '34% CTR increase',
+        latency: '<50ms inference'
+      },
+      link: '/projects/recommendation-engine'
+    },
+    {
+      id: 'demand-forecasting',
+      title: 'Multi-Horizon Demand Forecasting System',
+      description: 'Ensemble forecasting system for 5,000+ SKUs combining Prophet, LSTM, and XGBoost. Achieved 87% accuracy at 4-week horizon, reducing inventory costs by €3.1M annually while improving stock availability.',
+      image: '/projects/hero_demand_forecasting.png',
+      tags: ['Time Series', 'Forecasting', 'Prophet', 'LSTM'],
+      metrics: {
+        accuracy: '87% forecast accuracy',
+        skus: '5,000+ SKUs forecasted',
+        savings: '€3.1M cost reduction'
+      },
+      link: '/projects/demand-forecasting'
+    },
+    {
+      id: 'fraud-detection',
+      title: 'Real-Time Fraud Detection with Graph Neural Networks',
+      description: 'GNN-powered fraud detection system processing 1M+ daily transactions. Achieved 94% detection rate with 0.8% false positive rate, preventing €8.7M in fraudulent transactions annually.',
+      image: '/projects/hero_fraud_detection.png',
+      tags: ['Graph Neural Networks', 'Real-time ML', 'Python', 'Fraud Prevention'],
+      metrics: {
+        detection: '94% detection rate',
+        precision: '0.8% false positive',
+        prevented: '€8.7M fraud prevented'
+      },
+      link: '/projects/fraud-detection'
+    },
+    {
+      id: 'anomaly-detection-system',
+      title: 'Real-Time Anomaly Detection for IoT Sensors',
+      description: 'Production MLOps system processing 10M+ daily sensor readings using Isolation Forest and LSTM autoencoders. Achieved 67% false positive reduction with 48-hour advance failure warnings.',
+      image: '/projects/hero_anomaly_detection.png',
+      tags: ['MLOps', 'Anomaly Detection', 'IoT', 'Predictive Maintenance'],
+      metrics: {
+        scale: '10M+ daily readings',
+        accuracy: '67% FP reduction',
+        warning: '48-hour advance warning'
+      },
+      link: '/projects/anomaly-detection-system'
     }
   ];
 
   return (
     <>
-      <PageTitle>Data-Driven Projects</PageTitle>
+      <PageTitle>Data Science & Analytics Projects</PageTitle>
       <SectionContainer>
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <div className="space-y-2 pb-8 pt-6 md:space-y-5">
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-              Full-stack projects focused on business intelligence, predictive analytics, and data-driven strategic insights
+              Comprehensive portfolio showcasing expertise in machine learning, business intelligence, statistical analysis, and data-driven strategic insights
             </p>
           </div>
 
@@ -131,25 +222,29 @@ export default function ProjectsPage() {
             <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">About These Projects</h2>
             <div className="prose max-w-none text-gray-700 dark:prose-invert dark:text-gray-300">
               <p className="mb-4">
-                These projects demonstrate comprehensive market intelligence capabilities, combining advanced 
-                analytical techniques with strategic business thinking. Each project showcases:
+                These projects demonstrate comprehensive data science and analytics capabilities, combining advanced 
+                technical skills with strategic business thinking. Each project showcases:
               </p>
               <ul className="mb-6 space-y-2">
                 <li className="flex items-start">
                   <span className="mr-2 font-bold text-primary-500">→</span>
-                  <span><strong>Technical Proficiency:</strong> Power BI, Python, Machine Learning, Statistical Analysis</span>
+                  <span><strong>Technical Expertise:</strong> Machine Learning, Deep Learning, NLP, Time Series, Statistical Analysis</span>
                 </li>
                 <li className="flex items-start">
                   <span className="mr-2 font-bold text-primary-500">→</span>
-                  <span><strong>Business Acumen:</strong> Market analysis, ROI calculation, strategic recommendations</span>
+                  <span><strong>Business Impact:</strong> Quantified results, ROI analysis, strategic recommendations</span>
                 </li>
                 <li className="flex items-start">
                   <span className="mr-2 font-bold text-primary-500">→</span>
-                  <span><strong>Communication Skills:</strong> Clear visualizations, actionable insights, stakeholder presentations</span>
+                  <span><strong>Production Skills:</strong> Scalable systems, real-time processing, MLOps practices</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2 font-bold text-primary-500">→</span>
+                  <span><strong>Communication:</strong> Clear visualizations, actionable insights, stakeholder presentations</span>
                 </li>
               </ul>
               <p>
-                All projects include real data analysis, professional visualizations, and quantified business impact.
+                All projects include rigorous methodology, professional visualizations, and measurable business outcomes.
               </p>
             </div>
           </div>

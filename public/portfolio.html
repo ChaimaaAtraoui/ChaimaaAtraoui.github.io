@@ -4,7 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Projects - Chaimaa Atraoui</title>
-    <style>
+    <style>        /* Dark mode variables */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f3f4f6;
+            --bg-card: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --accent-color: #84cc16;
+            --accent-hover: #65a30d;
+            --border-color: #e5e7eb;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0f172a;
+                --bg-secondary: #1e293b;
+                --bg-card: #1e293b;
+                --text-primary: #f1f5f9;
+                --text-secondary: #94a3b8;
+                --border-color: #334155;
+                --shadow: rgba(0, 0, 0, 0.3);
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,183 +36,229 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f7fa;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            font-size: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 768px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 2rem 1rem;
         }
 
-        /* Project Details Section */
         .project-detail {
-            background: white;
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 50px;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px var(--shadow);
+            margin-bottom: 2rem;
         }
 
         .project-detail h2 {
-            color: #1F4788;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #2E86AB;
-            padding-bottom: 10px;
+            color: var(--text-primary);
+            font-size: 1.875rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .project-detail h3 {
-            color: #2E86AB;
-            font-size: 1.8em;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
 
         .project-detail h4 {
-            color: #1F4788;
-            font-size: 1.4em;
-            margin-top: 25px;
-            margin-bottom: 12px;
+            color: var(--text-primary);
+            font-size: 1.125rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.625rem;
+            font-weight: 600;
         }
 
         .project-detail p, .project-detail li {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 12px;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
         }
 
         .project-detail ul {
-            margin-left: 30px;
-            margin-bottom: 20px;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .visualization-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
 
         .visualization-item {
-            border: 2px solid #E8F4F8;
-            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
             overflow: hidden;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--bg-card);
         }
 
         .visualization-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px var(--shadow);
         }
 
         .visualization-item img {
             width: 100%;
-            height: auto;
+            height: 200px;
+            object-fit: cover;
             display: block;
         }
 
         .visualization-caption {
-            padding: 15px;
-            background: #F8FAFB;
+            padding: 0.75rem;
+            background: var(--bg-secondary);
             text-align: center;
-            font-weight: 600;
-            color: #1F4788;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.875rem;
         }
 
-        /* Methodology Section */
         .methodology {
-            background: #F8FAFB;
-            padding: 30px;
-            border-left: 5px solid #2E86AB;
-            margin: 30px 0;
-            border-radius: 6px;
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent-color);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
         }
 
         .methodology h4 {
-            color: #1F4788;
-            margin-bottom: 15px;
+            margin-top: 0;
+            color: var(--text-primary);
         }
 
-        /* Key Insights Box */
         .insights-box {
-            background: linear-gradient(135deg, #E8F4F8 0%, #D4E9F2 100%);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 30px 0;
-            border-left: 6px solid #2E86AB;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+            color: #ffffff;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
         }
 
         .insights-box h4 {
-            color: #1F4788;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            color: #ffffff;
+            margin-top: 0;
         }
 
         .insights-box ul {
-            list-style: none;
+            margin-left: 1.5rem;
+        }
+
+        .insights-box li {
+            color: #ffffff;
         }
 
         .insights-box li::before {
             content: "✓ ";
-            color: #2E86AB;
             font-weight: bold;
-            margin-right: 10px;
+            margin-right: 0.5rem;
         }
 
-        /* Navigation between projects */
         .project-nav {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px var(--shadow);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .project-nav a {
             display: inline-block;
-            padding: 10px 20px;
-            margin-right: 10px;
-            background: #E8F4F8;
-            color: #1F4788;
+            padding: 0.4rem 0.8rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            border: 1px solid var(--border-color);
         }
 
         .project-nav a:hover, .project-nav a.active {
-            background: #2E86AB;
+            background: var(--accent-color);
             color: white;
+            border-color: var(--accent-color);
         }
 
-        /* Responsive */
+        
+        /* Better image handling */
+        .project-detail img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        /* Specific styling for hero/diagram images */
+        .project-detail > img,
+        .project-detail img[src*="diagram"],
+        .project-detail img[src*="workflow"] {
+            max-width: 600px;
+            margin: 1.5rem auto;
+        }
+
+        /* Gallery images - already handled by .visualization-item */
+        .visualization-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Ensure images don't overflow */
+        .project-detail * {
+            max-width: 100%;
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 1rem 0.75rem;
+            }
+
             .project-detail {
-                padding: 30px 20px;
+                padding: 1.5rem;
             }
 
             .project-detail h2 {
-                font-size: 2em;
+                font-size: 1.5rem;
             }
 
-            .project-nav {
-                overflow-x: auto;
-                white-space: nowrap;
+            .project-detail h3 {
+                font-size: 1.25rem;
+            }
+
+            .visualization-gallery {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #2E86AB;
+            background: var(--accent-color);
             color: white;
             width: 50px;
             height: 50px;
@@ -198,29 +268,42 @@
             justify-content: center;
             text-decoration: none;
             font-size: 1.5em;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px var(--shadow);
             transition: transform 0.3s;
         }
 
         .back-to-top:hover {
             transform: translateY(-5px);
+            background: var(--accent-hover);
         }
-    </style>
+
+        html {
+            scroll-behavior: smooth;
+        }</style>
 </head>
 <body>
     <div class="container">
         <!-- Project Navigation -->
         <nav class="project-nav">
+            <a href="/projects" target="_parent">← Back to Projects</a>
             <a href="#project-market-dashboard" onclick="showProject('market-dashboard')">Market Dashboard</a>
             <a href="#project-churn-prediction" onclick="showProject('churn-prediction')">Churn Prediction</a>
             <a href="#project-viral-marketing" onclick="showProject('viral-marketing')">Viral Marketing</a>
+            <a href="#project-ab-testing-platform" onclick="showProject('ab-testing')">A/B testing</a>
+            <a href="#project-sentiment-analysis-nlp" onclick="showProject('sentiment-analysis')">Sentiment analysis</a>
+            <a href="#project-clv-prediction" onclick="showProject('clv-prediction')">CLV prediction</a>
+            <a href="#project-recommendation-engine" onclick="showProject('recommendation-engine')">Recommendation engine</a>
+            <a href="#project-demand-forecasting" onclick="showProject('demand-forecasting')">Demand forecasting</a>
+            <a href="#project-fraud-detection" onclick="showProject('fraud-detection')">Fraud detection</a>
+            <a href="#project-anomaly-detection-system" onclick="showProject('anomaly-detection-system')">Anomaly detection system</a>
+
         </nav>
 
         <!-- Project 1: Market Dashboard -->
         <section id="project-market-dashboard" class="project-detail project-section">
             <h2>Interactive Market Share Dashboard for FMCG Sector</h2>
             
-            <img src="/projects/diagram_analysis_workflow.png" alt="Analysis Workflow" style="width: 100%; max-width: 900px; margin: 30px auto; display: block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <img src="/projects/diagram_analysis_workflow.png" alt="Analysis Workflow" style="max-width: 600px; margin: 1.5rem auto; display: block; border-radius: 0.5rem;">
             
             <h3>Project Overview</h3>
             <p>
@@ -291,6 +374,11 @@
                 real-time competitive monitoring, strategic planning for market expansion, performance tracking 
                 against market growth rates, and regional strategy optimization.
             </p>
+                        <!-- Navigation -->
+            <div class="project-nav">
+                <a href="/projects" class="nav-btn" target="_parent">Back to Projects</a>
+                <a href="#project-churn-prediction" class="nav-btn">Next Project →</a>
+            </div>
         </section>
 
         <!-- Project 2: Churn Prediction -->
@@ -362,6 +450,12 @@
                 customers), cost optimization (reduce customer acquisition costs), and revenue protection (estimated 
                 15-20% reduction in churn rate translates to €2-3M annual revenue protection).
             </p>
+                        <!-- Navigation -->
+            <div class="project-nav">
+                <a href="#project-market-dashboard" class="nav-btn">← Previous Project</a>
+                <a href="#projects-overview" class="nav-btn">Back to Projects</a>
+                <a href="#project-viral-marketing" class="nav-btn">Next Project →</a>
+            </div>
         </section>
 
         <!-- Project 3: Viral Marketing -->
@@ -436,7 +530,1037 @@
                 strategies work for specific product types), accelerate growth (leverage viral marketing to achieve 
                 50-150% sales increases), and gain competitive advantage (stay ahead of market trends in digital marketing).
             </p>
+                        <!-- Navigation -->
+            <div class="project-nav">
+                <a href="#project-churn-prediction" class="nav-btn">← Previous Project</a>
+                <a href="/projects" class="nav-btn" target="_parent">Back to Projects</a>
+                <a href="#project-ab-testing-platform" class="nav-btn">Next Project →</a>
+            </div>
         </section>
+
+        <!-- PROJECT 4: A/B Testing Platform -->
+        <section id="project-ab-testing-platform" class="project-detail project-section" style="display:none;">
+            <div class="project-header">
+                <h2>E-commerce A/B Testing & Conversion Optimization</h2>
+                <p class="project-subtitle">Statistical experimentation driving €1.2M revenue growth</p>
+            </div>
+
+            <!-- Overview -->
+            <div class="section">
+                <h3>📊 Project Overview</h3>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <strong>Objective:</strong>
+                        <p>Optimize e-commerce conversion funnel through rigorous A/B testing and statistical experimentation</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Approach:</strong>
+                        <p>Bayesian A/B testing with sequential analysis and multi-armed bandit optimization</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Tools:</strong>
+                        <p>Python, SciPy, PyMC3, SQL, Tableau, Google Optimize</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Impact:</strong>
+                        <p>23% conversion increase, €1.2M additional annual revenue, 15+ successful experiments</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Experiments -->
+            <div class="section">
+                <h3>🔬 Key Experiments Conducted</h3>
+                <div class="findings-grid">
+                    <div class="finding-card">
+                        <div class="finding-number">18%</div>
+                        <div class="finding-label">Checkout Completion Increase</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">31%</div>
+                        <div class="finding-label">Annual Subscription Uplift</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">12%</div>
+                        <div class="finding-label">Cross-sell Conversion Boost</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Experiments -->
+            <div class="section">
+                <h3>📈 Experiment Results</h3>
+                
+                <div class="visualization">
+                    <h4>Experiment 1: Checkout Flow Optimization</h4>
+                    <img src="/projects/ab_testing_outputs/01_checkout_flow.png" alt="Checkout Flow Results">
+                    <p class="caption"><strong>Hypothesis:</strong> Reducing checkout steps from 5 to 3 increases completion rate<br>
+                    <strong>Sample Size:</strong> 50,000 users (25,000 per variant)<br>
+                    <strong>Result:</strong> 18% increase in checkout completion (p-value < 0.001)<br>
+                    <strong>Impact:</strong> €450K additional annual revenue</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Experiment 2: Pricing Display Strategy</h4>
+                    <img src="/projects/ab_testing_outputs/02_pricing_strategy.png" alt="Pricing Strategy Results">
+                    <p class="caption"><strong>Hypothesis:</strong> Showing monthly vs. annual pricing first affects subscription choice<br>
+                    <strong>Sample Size:</strong> 30,000 users<br>
+                    <strong>Result:</strong> 31% increase in annual subscriptions<br>
+                    <strong>Impact:</strong> €680K increase in customer lifetime value</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Experiment 3: Product Recommendation Algorithm</h4>
+                    <img src="/projects/ab_testing_outputs/03_recommendation_test.png" alt="Recommendation Test Results">
+                    <p class="caption"><strong>Hypothesis:</strong> ML-based recommendations outperform rule-based system<br>
+                    <strong>Sample Size:</strong> 40,000 users<br>
+                    <strong>Result:</strong> 12% increase in cross-sell conversion<br>
+                    <strong>Impact:</strong> €210K additional revenue</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Statistical Power Analysis</h4>
+                    <img src="/projects/ab_testing_outputs/04_power_analysis.png" alt="Power Analysis">
+                    <p class="caption">Pre-experiment power analysis ensuring adequate sample sizes for detecting meaningful effects with 80% power and 5% significance level.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Bayesian Credible Intervals</h4>
+                    <img src="/projects/ab_testing_outputs/05_bayesian_intervals.png" alt="Bayesian Analysis">
+                    <p class="caption">Posterior distributions showing 95% credible intervals for conversion rate differences, enabling early stopping decisions.</p>
+                </div>
+            </div>
+
+            <!-- Methodology -->
+            <div class="section">
+                <h3>🔍 Statistical Methodology</h3>
+                <ul class="insights-list">
+                    <li><strong>Bayesian A/B Testing:</strong> Implemented Bayesian inference for continuous monitoring and early stopping, reducing experiment duration by 30% while maintaining statistical rigor</li>
+                    <li><strong>Sequential Testing:</strong> Applied alpha spending functions to control false positive rate across multiple interim analyses</li>
+                    <li><strong>Multi-Armed Bandit:</strong> Deployed Thompson Sampling for dynamic traffic allocation, maximizing revenue during experimentation</li>
+                    <li><strong>CUPED Variance Reduction:</strong> Used pre-experiment data to reduce variance by 40%, enabling detection of smaller effects</li>
+                    <li><strong>Segmentation Analysis:</strong> Analyzed heterogeneous treatment effects across user segments (new vs. returning, mobile vs. desktop)</li>
+                </ul>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="section">
+                <h3>💡 Key Insights</h3>
+                <ul class="insights-list">
+                    <li><strong>Friction Reduction:</strong> Every additional step in checkout reduces completion rate by 6-8%, emphasizing need for streamlined flows</li>
+                    <li><strong>Pricing Psychology:</strong> Annual pricing displayed first increases long-term subscriptions by anchoring customer expectations higher</li>
+                    <li><strong>Personalization Value:</strong> ML-based recommendations significantly outperform rule-based systems, justifying investment in advanced algorithms</li>
+                    <li><strong>Mobile Optimization:</strong> Mobile users showed 2x higher sensitivity to checkout friction compared to desktop users</li>
+                    <li><strong>Temporal Effects:</strong> Conversion rates vary by 15% across days of week, requiring stratified randomization</li>
+                </ul>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="section">
+                <h3>🎯 Strategic Recommendations</h3>
+                <div class="recommendations">
+                    <div class="recommendation">
+                        <h4>1. Implement One-Click Checkout</h4>
+                        <p>Based on checkout friction analysis, implement one-click checkout for returning customers. Expected impact: additional 12% conversion increase, €300K annual revenue.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>2. Expand Personalization Engine</h4>
+                        <p>Scale ML-based recommendations to all product pages and email campaigns. Projected impact: 8% overall revenue increase.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>3. Mobile-First Design Priority</h4>
+                        <p>Prioritize mobile optimization given higher sensitivity to friction. Redesign mobile checkout flow with single-page completion.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>4. Continuous Experimentation Culture</h4>
+                        <p>Establish quarterly experimentation roadmap with dedicated resources. Target: 20+ experiments annually with 60% win rate.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-nav">
+                <a href="#project-viral-marketing" class="nav-btn">← Previous Project</a>
+                <a href="/projects" class="nav-btn" target="_parent">Back to Projects</a>
+                <a href="#project-sentiment-analysis-nlp" class="nav-btn">Next Project →</a>
+            </div>
+        </section>
+
+        <!-- PROJECT 5: Sentiment Analysis NLP -->
+        <section id="project-sentiment-analysis-nlp" class="project-detail project-section" style="display:none;">
+            <div class="project-header">
+                <h2>Multi-Language Sentiment Analysis & Topic Modeling</h2>
+                <p class="project-subtitle">BERT-powered insights from 500K+ customer reviews across 12 languages</p>
+            </div>
+
+            <!-- Overview -->
+            <div class="section">
+                <h3>📊 Project Overview</h3>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <strong>Objective:</strong>
+                        <p>Extract actionable insights from customer feedback across multiple languages and channels</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Approach:</strong>
+                        <p>Fine-tuned multilingual BERT with aspect-based sentiment analysis and topic modeling</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Tools:</strong>
+                        <p>Python, PyTorch, Transformers, BERTopic, spaCy, MongoDB</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Impact:</strong>
+                        <p>91% accuracy, +18 NPS improvement, identified 5 critical product issues</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Findings -->
+            <div class="section">
+                <h3>🔍 Key Findings</h3>
+                <div class="findings-grid">
+                    <div class="finding-card">
+                        <div class="finding-number">91%</div>
+                        <div class="finding-label">Sentiment Accuracy</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">500K+</div>
+                        <div class="finding-label">Reviews Analyzed</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">+18</div>
+                        <div class="finding-label">NPS Point Increase</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Results -->
+            <div class="section">
+                <h3>📈 Analysis & Results</h3>
+                
+                <div class="visualization">
+                    <h4>Sentiment Distribution Over Time</h4>
+                    <img src="/projects/sentiment_analysis_outputs/01_sentiment_trend.png" alt="Sentiment Trend">
+                    <p class="caption">Positive sentiment increased from 68% to 82% following product improvements based on feedback analysis.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Aspect-Based Sentiment Analysis</h4>
+                    <img src="/projects/sentiment_analysis_outputs/02_aspect_sentiment.png" alt="Aspect Sentiment">
+                    <p class="caption">Breakdown of sentiment by product aspect: Quality (89% positive), Service (76% positive), Delivery (71% positive), Pricing (64% positive), UX (79% positive).</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Topic Modeling Visualization</h4>
+                    <img src="/projects/sentiment_analysis_outputs/03_topic_modeling.png" alt="Topic Modeling">
+                    <p class="caption">BERTopic clustering revealing 15 distinct themes in customer feedback, with delivery issues and pricing concerns as top negative topics.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Multi-Language Sentiment Comparison</h4>
+                    <img src="/projects/sentiment_analysis_outputs/04_language_comparison.png" alt="Language Comparison">
+                    <p class="caption">Sentiment consistency across 12 languages with model accuracy ranging from 88% (Arabic) to 94% (English).</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Competitive Sentiment Benchmarking</h4>
+                    <img src="/projects/sentiment_analysis_outputs/05_competitive_analysis.png" alt="Competitive Analysis">
+                    <p class="caption">Sentiment comparison with top 3 competitors showing 12% advantage in product quality perception.</p>
+                </div>
+            </div>
+
+            <!-- Technical Implementation -->
+            <div class="section">
+                <h3>🔧 Technical Implementation</h3>
+                <ul class="insights-list">
+                    <li><strong>Model Architecture:</strong> Fine-tuned multilingual BERT (mBERT) on 100K labeled reviews with domain-specific vocabulary</li>
+                    <li><strong>Aspect Extraction:</strong> Implemented dependency parsing and attention mechanisms to identify product aspects mentioned in reviews</li>
+                    <li><strong>Topic Modeling:</strong> Used BERTopic with UMAP dimensionality reduction and HDBSCAN clustering for coherent topic discovery</li>
+                    <li><strong>Multi-Language Support:</strong> Single model handling 12 languages: English, French, Spanish, German, Italian, Portuguese, Dutch, Polish, Arabic, Chinese, Japanese, Korean</li>
+                    <li><strong>Production Pipeline:</strong> Real-time inference with batch processing for historical data, deployed on AWS SageMaker</li>
+                </ul>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="section">
+                <h3>💡 Key Insights</h3>
+                <ul class="insights-list">
+                    <li><strong>Delivery Pain Points:</strong> 34% of negative reviews mentioned delivery issues, specifically late arrivals and poor packaging</li>
+                    <li><strong>Pricing Sensitivity:</strong> Price-related negative sentiment concentrated in mid-tier products, suggesting pricing misalignment</li>
+                    <li><strong>Quality Perception:</strong> Product quality received highest positive sentiment (89%), indicating strong competitive advantage</li>
+                    <li><strong>Customer Service Impact:</strong> Positive service interactions increased overall review rating by 1.2 stars on average</li>
+                    <li><strong>Emerging Trends:</strong> Sustainability and eco-friendliness mentioned 3x more frequently in recent reviews, indicating shifting customer values</li>
+                </ul>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="section">
+                <h3>🎯 Strategic Recommendations</h3>
+                <div class="recommendations">
+                    <div class="recommendation">
+                        <h4>1. Delivery Experience Overhaul</h4>
+                        <p>Partner with premium logistics providers and implement real-time tracking. Expected impact: 15% reduction in negative reviews, +5 NPS points.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>2. Mid-Tier Pricing Adjustment</h4>
+                        <p>Revise pricing strategy for mid-tier products based on value perception analysis. Projected impact: 8% sales increase in this segment.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>3. Sustainability Messaging</h4>
+                        <p>Amplify eco-friendly initiatives in marketing and product descriptions to align with emerging customer values.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>4. Proactive Issue Resolution</h4>
+                        <p>Implement real-time sentiment monitoring to identify and address negative experiences within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-nav">
+                <a href="#project-ab-testing-platform" class="nav-btn">← Previous Project</a>
+                <a href="/projects" class="nav-btn" target="_parent">Back to Projects</a>
+                <a href="#project-clv-prediction" class="nav-btn">Next Project →</a>
+            </div>
+        </section>
+
+        <!-- PROJECT 6: Customer Lifetime Value Prediction -->
+        <section id="project-clv-prediction" class="project-detail project-section" style="display:none;">
+            <div class="project-header">
+                <h2>Customer Lifetime Value Prediction & Segmentation</h2>
+                <p class="project-subtitle">Probabilistic modeling driving 3.4x marketing ROI improvement</p>
+            </div>
+
+            <!-- Overview -->
+            <div class="section">
+                <h3>📊 Project Overview</h3>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <strong>Objective:</strong>
+                        <p>Predict customer lifetime value and optimize marketing spend allocation across segments</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Approach:</strong>
+                        <p>BG/NBD and Gamma-Gamma probabilistic models with survival analysis</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Tools:</strong>
+                        <p>Python, Lifetimes, scikit-learn, SQL, Tableau</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Impact:</strong>
+                        <p>28% churn reduction in high-value segment, 3.4x marketing ROI, €2.3M revenue increase</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="section">
+                <h3>🔍 Key Results</h3>
+                <div class="findings-grid">
+                    <div class="finding-card">
+                        <div class="finding-number">250K+</div>
+                        <div class="finding-label">Customers Analyzed</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">28%</div>
+                        <div class="finding-label">Churn Reduction</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">3.4x</div>
+                        <div class="finding-label">Marketing ROI</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Results -->
+            <div class="section">
+                <h3>📈 Analysis & Results</h3>
+                
+                <div class="visualization">
+                    <h4>CLV Distribution by Customer Segment</h4>
+                    <img src="/projects/clv_outputs/01_clv_distribution.png" alt="CLV Distribution">
+                    <p class="caption">Champions segment (15% of customers) contributes 48% of total revenue with average CLV of €3,200.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Customer Segmentation Matrix</h4>
+                    <img src="/projects/clv_outputs/02_rfm_segmentation.png" alt="RFM Segmentation">
+                    <p class="caption">RFM analysis identifying 6 distinct customer segments with tailored retention strategies for each.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Cohort Retention Analysis</h4>
+                    <img src="/projects/clv_outputs/03_cohort_retention.png" alt="Cohort Retention">
+                    <p class="caption">Month-over-month retention rates showing 28% improvement in Champions segment after targeted interventions.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Purchase Frequency Prediction</h4>
+                    <img src="/projects/clv_outputs/04_purchase_frequency.png" alt="Purchase Frequency">
+                    <p class="caption">BG/NBD model accurately predicting future purchase frequency with 82% accuracy over 6-month horizon.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Marketing Spend Optimization</h4>
+                    <img src="/projects/clv_outputs/05_spend_optimization.png" alt="Spend Optimization">
+                    <p class="caption">Optimized budget allocation across segments based on predicted CLV and churn probability, increasing ROI from 1.8x to 3.4x.</p>
+                </div>
+            </div>
+
+            <!-- Customer Segments -->
+            <div class="section">
+                <h3>👥 Customer Segments Identified</h3>
+                <ul class="insights-list">
+                    <li><strong>Champions (15%):</strong> High CLV (€3,200), frequent buyers → VIP treatment, exclusive offers, early access to new products</li>
+                    <li><strong>Loyal Customers (22%):</strong> Consistent purchasers (€1,800 CLV) → Loyalty rewards program, personalized recommendations</li>
+                    <li><strong>At Risk (18%):</strong> Declining activity (€1,200 CLV) → Win-back campaigns, special discounts, feedback surveys</li>
+                    <li><strong>Hibernating (12%):</strong> Inactive but valuable (€900 CLV) → Re-engagement emails, product updates, incentive offers</li>
+                    <li><strong>Lost (8%):</strong> Churned high-value (€600 historical) → Competitive analysis, exit surveys, aggressive win-back offers</li>
+                    <li><strong>New Customers (25%):</strong> Recent first purchase (€400 CLV) → Onboarding optimization, second purchase incentives</li>
+                </ul>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="section">
+                <h3>💡 Key Insights</h3>
+                <ul class="insights-list">
+                    <li><strong>Concentration Risk:</strong> Top 15% of customers (Champions) generate 48% of revenue, requiring focused retention efforts</li>
+                    <li><strong>Early Warning Signals:</strong> 30-day purchase gap predicts 67% churn probability in high-value segment</li>
+                    <li><strong>Acquisition Efficiency:</strong> New customers acquired through referrals have 2.3x higher CLV than paid channels</li>
+                    <li><strong>Seasonal Patterns:</strong> Purchase frequency increases 34% during Q4, requiring adjusted forecasts</li>
+                    <li><strong>Cross-Sell Opportunity:</strong> Customers purchasing from 2+ categories have 3.1x higher CLV</li>
+                </ul>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="section">
+                <h3>🎯 Strategic Recommendations</h3>
+                <div class="recommendations">
+                    <div class="recommendation">
+                        <h4>1. Champions Retention Program</h4>
+                        <p>Implement dedicated account management for Champions segment. Invest €200K annually to protect €12M revenue stream (48% of total).</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>2. At-Risk Early Intervention</h4>
+                        <p>Deploy automated triggers for 30-day purchase gap in high-value customers. Expected impact: 28% churn reduction, €890K revenue protection.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>3. Referral Program Expansion</h4>
+                        <p>Scale referral program given 2.3x higher CLV. Allocate 30% of acquisition budget to referral incentives.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>4. Cross-Category Promotion</h4>
+                        <p>Incentivize cross-category purchases through bundling and recommendations. Target: increase multi-category customers from 32% to 45%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-nav">
+                <a href="#project-sentiment-analysis-nlp" class="nav-btn">← Previous Project</a>
+                <a href="/projects" class="nav-btn" target="_parent">Back to Projects</a>
+                <a href="#project-recommendation-engine" class="nav-btn">Next Project →</a>
+            </div>
+        </section>
+
+        <!-- PROJECT 7: Recommendation Engine -->
+        <section id="project-recommendation-engine" class="project-detail project-section" style="display:none;">
+            <div class="project-header">
+                <h2>Hybrid Recommendation System with Deep Learning</h2>
+                <p class="project-subtitle">Two-tower neural network serving 2M+ users with <50ms latency</p>
+            </div>
+
+            <!-- Overview -->
+            <div class="section">
+                <h3>📊 Project Overview</h3>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <strong>Objective:</strong>
+                        <p>Build scalable recommendation system personalizing content for millions of users in real-time</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Approach:</strong>
+                        <p>Hybrid system combining collaborative filtering, content-based filtering, and neural networks</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Tools:</strong>
+                        <p>TensorFlow, Spark, Redis, Kubernetes, TensorFlow Serving</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Impact:</strong>
+                        <p>34% CTR increase, +47 min engagement, €4.2M additional revenue</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="section">
+                <h3>🔍 Key Results</h3>
+                <div class="findings-grid">
+                    <div class="finding-card">
+                        <div class="finding-number">2M+</div>
+                        <div class="finding-label">Active Users</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">34%</div>
+                        <div class="finding-label">CTR Increase</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number"><50ms</div>
+                        <div class="finding-label">Inference Latency</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Architecture -->
+            <div class="section">
+                <h3>📈 System Architecture & Results</h3>
+                
+                <div class="visualization">
+                    <h4>Recommendation Pipeline Architecture</h4>
+                    <img src="/projects/recommendation_outputs/01_architecture.png" alt="System Architecture">
+                    <p class="caption">Three-stage pipeline: Candidate Generation (ALS + embeddings) → Ranking (two-tower neural network) → Re-ranking (business rules + diversity).</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Model Performance Comparison</h4>
+                    <img src="/projects/recommendation_outputs/02_model_comparison.png" alt="Model Comparison">
+                    <p class="caption">Two-tower neural network outperforms traditional methods: 34% higher CTR vs. collaborative filtering, 28% vs. content-based.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>User Engagement Metrics</h4>
+                    <img src="/projects/recommendation_outputs/03_engagement_metrics.png" alt="Engagement Metrics">
+                    <p class="caption">Session time increased from 32 to 79 minutes (+47 min), with 26% conversion rate improvement.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Real-Time Inference Performance</h4>
+                    <img src="/projects/recommendation_outputs/04_latency_analysis.png" alt="Latency Analysis">
+                    <p class="caption">99th percentile latency under 50ms with TensorFlow Serving on Kubernetes, handling 10K requests/second.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Recommendation Diversity Analysis</h4>
+                    <img src="/projects/recommendation_outputs/05_diversity_metrics.png" alt="Diversity Metrics">
+                    <p class="caption">Balanced accuracy and diversity: 82% relevance with 67% catalog coverage, avoiding filter bubble effect.</p>
+                </div>
+            </div>
+
+            <!-- Technical Implementation -->
+            <div class="section">
+                <h3>🔧 Technical Implementation</h3>
+                <ul class="insights-list">
+                    <li><strong>Candidate Generation:</strong> Matrix factorization (ALS) generating 500 candidates per user, combined with content embeddings from item features</li>
+                    <li><strong>Two-Tower Architecture:</strong> Separate neural networks for user and item embeddings with dot-product similarity scoring</li>
+                    <li><strong>Feature Engineering:</strong> 200+ features including user behavior, demographics, item attributes, contextual signals (time, device, location)</li>
+                    <li><strong>Training Pipeline:</strong> Daily model retraining on Spark with 100M+ interactions, using negative sampling and weighted loss</li>
+                    <li><strong>Serving Infrastructure:</strong> TensorFlow Serving on Kubernetes with Redis caching, achieving <50ms p99 latency</li>
+                    <li><strong>Cold Start Handling:</strong> Content-based fallback for new users/items, popularity-based recommendations, exploration-exploitation balance</li>
+                </ul>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="section">
+                <h3>💡 Key Insights</h3>
+                <ul class="insights-list">
+                    <li><strong>Context Matters:</strong> Time-of-day and device type features improved accuracy by 12%, highlighting importance of contextual recommendations</li>
+                    <li><strong>Diversity-Accuracy Tradeoff:</strong> Introducing diversity constraints reduced immediate CTR by 3% but increased long-term engagement by 18%</li>
+                    <li><strong>Cold Start Challenge:</strong> New items require 50+ interactions before collaborative filtering becomes effective, necessitating hybrid approach</li>
+                    <li><strong>Feedback Loop:</strong> Recommendations create self-reinforcing patterns; explicit diversity injection prevents filter bubbles</li>
+                    <li><strong>Real-Time Value:</strong> Incorporating last-hour behavior improved relevance by 8% compared to batch-only updates</li>
+                </ul>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="section">
+                <h3>🎯 Strategic Recommendations</h3>
+                <div class="recommendations">
+                    <div class="recommendation">
+                        <h4>1. Multi-Objective Optimization</h4>
+                        <p>Expand beyond CTR to optimize for long-term engagement, diversity, and business metrics (revenue, margin). Implement multi-task learning.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>2. Reinforcement Learning Integration</h4>
+                        <p>Deploy contextual bandits for exploration-exploitation balance, expected to improve long-term engagement by additional 15%.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>3. Cross-Platform Personalization</h4>
+                        <p>Extend recommendations across web, mobile, and email channels with unified user representation.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>4. Explainable Recommendations</h4>
+                        <p>Add explanation layer ("Because you liked X") to increase trust and click-through rates by estimated 8%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-nav">
+                <a href="#project-clv-prediction" class="nav-btn">← Previous Project</a>
+                <a href="/projects" class="nav-btn" target="_parent">Back to Projects</a>
+                <a href="#project-demand-forecasting" class="nav-btn">Next Project →</a>
+            </div>
+        </section>
+
+        <!-- PROJECT 8: Demand Forecasting -->
+        <section id="project-demand-forecasting" class="project-detail project-section" style="display:none;">
+            <div class="project-header">
+                <h2>Multi-Horizon Demand Forecasting System</h2>
+                <p class="project-subtitle">Ensemble forecasting for 5,000+ SKUs reducing inventory costs by €3.1M</p>
+            </div>
+
+            <!-- Overview -->
+            <div class="section">
+                <h3>📊 Project Overview</h3>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <strong>Objective:</strong>
+                        <p>Optimize inventory levels through accurate demand forecasting across multiple time horizons</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Approach:</strong>
+                        <p>Hierarchical time series forecasting with ensemble of Prophet, LSTM, and XGBoost</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Tools:</strong>
+                        <p>Python, Prophet, TensorFlow, XGBoost, Optuna, Airflow</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Impact:</strong>
+                        <p>87% forecast accuracy, €3.1M cost reduction, 42% stockout reduction</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="section">
+                <h3>🔍 Key Results</h3>
+                <div class="findings-grid">
+                    <div class="finding-card">
+                        <div class="finding-number">87%</div>
+                        <div class="finding-label">Forecast Accuracy</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">5,000+</div>
+                        <div class="finding-label">SKUs Forecasted</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">€3.1M</div>
+                        <div class="finding-label">Cost Reduction</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forecasting Results -->
+            <div class="section">
+                <h3>📈 Forecasting Results</h3>
+                
+                <div class="visualization">
+                    <h4>Forecast vs. Actual Comparison</h4>
+                    <img src="/projects/demand_forecasting_outputs/01_forecast_accuracy.png" alt="Forecast Accuracy">
+                    <p class="caption">12-month forecast showing 87% accuracy (MAPE) across all SKUs, with 95% prediction intervals capturing actual demand.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Model Performance by Product Category</h4>
+                    <img src="/projects/demand_forecasting_outputs/02_category_performance.png" alt="Category Performance">
+                    <p class="caption">Accuracy varies by category: Electronics (91%), Fashion (82%), Groceries (89%), with lower accuracy in fashion due to trend volatility.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Seasonal Decomposition</h4>
+                    <img src="/projects/demand_forecasting_outputs/03_seasonal_decomposition.png" alt="Seasonal Decomposition">
+                    <p class="caption">Time series decomposition revealing strong weekly seasonality (weekends +40%) and annual patterns (Q4 +60%).</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Feature Importance Analysis</h4>
+                    <img src="/projects/demand_forecasting_outputs/04_feature_importance.png" alt="Feature Importance">
+                    <p class="caption">Top predictive features: lagged demand (35%), promotional activity (22%), weather (15%), holidays (12%), competitor pricing (8%).</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Inventory Optimization Dashboard</h4>
+                    <img src="/projects/demand_forecasting_outputs/05_inventory_optimization.png" alt="Inventory Optimization">
+                    <p class="caption">Optimized stock levels based on forecasts: 31% reduction in excess inventory, 42% reduction in stockouts, €3.1M total savings.</p>
+                </div>
+            </div>
+
+            <!-- Technical Approach -->
+            <div class="section">
+                <h3>🔧 Technical Approach</h3>
+                <ul class="insights-list">
+                    <li><strong>Ensemble Method:</strong> Weighted average of Prophet (40%), LSTM (35%), and XGBoost (25%) based on historical performance per SKU</li>
+                    <li><strong>Prophet:</strong> Captures seasonal patterns, holidays, and trend changes with automatic changepoint detection</li>
+                    <li><strong>LSTM Networks:</strong> Models complex non-linear patterns and long-term dependencies in high-volume SKUs</li>
+                    <li><strong>XGBoost:</strong> Leverages external features (weather, promotions, economic indicators) for feature-rich forecasting</li>
+                    <li><strong>Hierarchical Reconciliation:</strong> Bottom-up and top-down forecasting ensuring consistency across product hierarchy</li>
+                    <li><strong>Automated Pipeline:</strong> Daily data ingestion, quality checks, model retraining (weekly), and forecast generation with Airflow orchestration</li>
+                </ul>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="section">
+                <h3>💡 Key Insights</h3>
+                <ul class="insights-list">
+                    <li><strong>Promotional Impact:</strong> Promotions increase demand by 120% on average, but effect varies widely by product category (80-200%)</li>
+                    <li><strong>Weather Sensitivity:</strong> Temperature changes of 10°C affect demand by 15% in seasonal categories (beverages, apparel)</li>
+                    <li><strong>Stockout Cascade:</strong> Stockouts in popular items drive 8% demand increase in substitute products</li>
+                    <li><strong>Long Tail Challenge:</strong> 60% of SKUs have intermittent demand patterns, requiring specialized forecasting methods</li>
+                    <li><strong>Forecast Horizon Tradeoff:</strong> Accuracy decreases from 92% (1-week) to 87% (4-week) to 78% (12-week)</li>
+                </ul>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="section">
+                <h3>🎯 Strategic Recommendations</h3>
+                <div class="recommendations">
+                    <div class="recommendation">
+                        <h4>1. Dynamic Safety Stock</h4>
+                        <p>Implement forecast-uncertainty-based safety stock calculation instead of fixed percentages. Expected impact: additional €500K inventory reduction.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>2. Promotional Planning Integration</h4>
+                        <p>Integrate promotional calendar 8 weeks in advance to improve forecast accuracy during high-impact events.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>3. Intermittent Demand Specialization</h4>
+                        <p>Deploy Croston's method or probabilistic forecasting for long-tail SKUs with intermittent demand patterns.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>4. Real-Time Forecast Adjustment</h4>
+                        <p>Implement intra-day forecast updates based on actual sales to enable agile replenishment decisions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-nav">
+                <a href="#project-recommendation-engine" class="nav-btn">← Previous Project</a>
+                <a href="/projects" class="nav-btn" target="_parent">Back to Projects</a>
+                <a href="#project-fraud-detection" class="nav-btn">Next Project →</a>
+            </div>
+        </section>
+
+        <!-- PROJECT 9: Fraud Detection -->
+        <section id="project-fraud-detection"class="project-detail project-section" style="display:none;">
+            <div class="project-header">
+                <h2>Real-Time Fraud Detection with Graph Neural Networks</h2>
+                <p class="project-subtitle">GNN-powered system preventing €8.7M in fraud losses annually</p>
+            </div>
+
+            <!-- Overview -->
+            <div class="section">
+                <h3>📊 Project Overview</h3>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <strong>Objective:</strong>
+                        <p>Detect fraudulent transactions in real-time while minimizing false positives and customer friction</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Approach:</strong>
+                        <p>Ensemble of graph neural networks, gradient boosting, and rule-based systems</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Tools:</strong>
+                        <p>PyTorch Geometric, XGBoost, Kafka, Redis, PostgreSQL, Elasticsearch</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Impact:</strong>
+                        <p>94% detection rate, 0.8% false positive rate, €8.7M fraud prevented, <100ms latency</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="section">
+                <h3>🔍 Key Results</h3>
+                <div class="findings-grid">
+                    <div class="finding-card">
+                        <div class="finding-number">94%</div>
+                        <div class="finding-label">Fraud Detection Rate</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">0.8%</div>
+                        <div class="finding-label">False Positive Rate</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">€8.7M</div>
+                        <div class="finding-label">Fraud Prevented</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detection Results -->
+            <div class="section">
+                <h3>📈 Detection Performance</h3>
+                
+                <div class="visualization">
+                    <h4>ROC and Precision-Recall Curves</h4>
+                    <img src="/projects/fraud_detection_outputs/01_roc_pr_curves.png" alt="ROC and PR Curves">
+                    <p class="caption">ROC-AUC: 0.98, PR-AUC: 0.91. Ensemble model significantly outperforms individual methods in highly imbalanced dataset (0.3% fraud rate).</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Model Performance Comparison</h4>
+                    <img src="/projects/fraud_detection_outputs/02_model_comparison.png" alt="Model Comparison">
+                    <p class="caption">GNN-based ensemble achieves 94% detection rate vs. 76% with traditional methods, while reducing false positives from 3.2% to 0.8%.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Transaction Network Graph</h4>
+                    <img src="/projects/fraud_detection_outputs/03_network_graph.png" alt="Network Graph">
+                    <p class="caption">Graph neural network identifying fraud rings: connected accounts with suspicious transaction patterns highlighted in red.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Feature Importance</h4>
+                    <img src="/projects/fraud_detection_outputs/04_feature_importance.png" alt="Feature Importance">
+                    <p class="caption">Top fraud indicators: velocity (transactions/hour), geographic anomalies, device fingerprint mismatches, network centrality.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Fraud Patterns Over Time</h4>
+                    <img src="/projects/fraud_detection_outputs/05_fraud_trends.png" alt="Fraud Trends">
+                    <p class="caption">Fraud attempts peak during holidays (+180%) and late night hours (+120%), informing dynamic risk thresholds.</p>
+                </div>
+            </div>
+
+            <!-- Technical Implementation -->
+            <div class="section">
+                <h3>🔧 Technical Implementation</h3>
+                <ul class="insights-list">
+                    <li><strong>Graph Neural Networks:</strong> GraphSAGE architecture modeling transaction networks, capturing fraud rings and connected account patterns</li>
+                    <li><strong>Gradient Boosting:</strong> XGBoost with 200+ engineered features for transaction-level classification</li>
+                    <li><strong>Isolation Forest:</strong> Unsupervised anomaly detection identifying novel fraud patterns not seen in training data</li>
+                    <li><strong>Rule-Based System:</strong> Expert-defined rules for known fraud patterns (velocity checks, geographic impossibilities)</li>
+                    <li><strong>Ensemble Voting:</strong> Weighted combination of all methods with dynamic threshold adjustment based on risk tolerance</li>
+                    <li><strong>Real-Time Architecture:</strong> Kafka streaming, Redis feature store, <100ms inference latency, PostgreSQL for transaction history</li>
+                </ul>
+            </div>
+
+            <!-- Fraud Types -->
+            <div class="section">
+                <h3>🎯 Fraud Types Detected</h3>
+                <ul class="insights-list">
+                    <li><strong>Account Takeover (ATO):</strong> 32% of fraud cases, detected via behavioral biometrics and device fingerprinting</li>
+                    <li><strong>Card-Not-Present (CNP):</strong> 28% of cases, identified through velocity checks and shipping address anomalies</li>
+                    <li><strong>Synthetic Identity:</strong> 18% of cases, discovered via network analysis and credit bureau data inconsistencies</li>
+                    <li><strong>Money Laundering:</strong> 12% of cases, detected through transaction pattern analysis and network centrality</li>
+                    <li><strong>Chargeback Fraud:</strong> 6% of cases, predicted using historical chargeback patterns and merchant risk scores</li>
+                    <li><strong>Promo Abuse:</strong> 4% of cases, identified via multi-account detection and referral network analysis</li>
+                </ul>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="section">
+                <h3>💡 Key Insights</h3>
+                <ul class="insights-list">
+                    <li><strong>Network Effects:</strong> GNN captures fraud rings that individual transaction models miss, improving detection by 18%</li>
+                    <li><strong>Imbalanced Data Challenge:</strong> With 0.3% fraud rate, precision-recall optimization more important than accuracy</li>
+                    <li><strong>Adaptive Adversaries:</strong> Fraudsters evolve tactics; continuous model retraining essential (weekly updates)</li>
+                    <li><strong>False Positive Cost:</strong> Each false positive costs €12 in customer service and potential churn; 0.8% rate saves €2.1M annually</li>
+                    <li><strong>Real-Time Requirement:</strong> 78% of fraud detected within 2 hours is recoverable vs. 12% after 24 hours</li>
+                </ul>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="section">
+                <h3>🎯 Strategic Recommendations</h3>
+                <div class="recommendations">
+                    <div class="recommendation">
+                        <h4>1. Behavioral Biometrics Enhancement</h4>
+                        <p>Integrate typing patterns, mouse movements, and mobile sensor data to improve ATO detection by estimated 15%.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>2. Consortium Data Sharing</h4>
+                        <p>Join industry fraud consortium to share anonymized fraud patterns, expected to improve novel fraud detection by 20%.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>3. Explainable AI Layer</h4>
+                        <p>Add SHAP explanations for fraud alerts to reduce investigation time by 40% and improve model trust.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>4. Proactive Customer Education</h4>
+                        <p>Implement fraud awareness campaigns based on detected attack patterns, reducing successful fraud by estimated 10%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-nav">
+                <a href="#project-demand-forecasting" class="nav-btn">← Previous Project</a>
+                <a href="/projects" class="nav-btn" target="_parent">Back to Projects</a>
+                <a href="#project-anomaly-detection-system" class="nav-btn">Next Project →</a>
+            </div>
+        </section>
+
+        <!-- PROJECT 10: Anomaly Detection System -->
+        <section id="project-anomaly-detection-system" class="project-detail project-section" style="display:none;">
+            <div class="project-header">
+                <h2>Real-Time Anomaly Detection for IoT Sensors</h2>
+                <p class="project-subtitle">Production MLOps system processing 10M+ daily readings with 48-hour advance warnings</p>
+            </div>
+
+            <!-- Overview -->
+            <div class="section">
+                <h3>📊 Project Overview</h3>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <strong>Objective:</strong>
+                        <p>Enable predictive maintenance through real-time anomaly detection in manufacturing equipment sensors</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Approach:</strong>
+                        <p>Ensemble of Isolation Forest, LSTM autoencoders, and statistical process control</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Tools:</strong>
+                        <p>Python, TensorFlow, Kafka, Docker, Kubernetes, MLflow, Prometheus, Grafana</p>
+                    </div>
+                    <div class="overview-item">
+                        <strong>Impact:</strong>
+                        <p>67% false positive reduction, 48-hour advance warnings, €890K maintenance savings</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="section">
+                <h3>🔍 Key Results</h3>
+                <div class="findings-grid">
+                    <div class="finding-card">
+                        <div class="finding-number">10M+</div>
+                        <div class="finding-label">Daily Sensor Readings</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">67%</div>
+                        <div class="finding-label">False Positive Reduction</div>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">48h</div>
+                        <div class="finding-label">Advance Warning Time</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Performance -->
+            <div class="section">
+                <h3>📈 System Performance</h3>
+                
+                <div class="visualization">
+                    <h4>Real-Time Anomaly Detection Dashboard</h4>
+                    <img src="/projects/anomaly_detection_outputs/01_realtime_dashboard.png" alt="Real-Time Dashboard">
+                    <p class="caption">Live monitoring of 500+ sensors across 50 machines, with color-coded severity levels and automated alerting.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Model Performance Comparison</h4>
+                    <img src="/projects/anomaly_detection_outputs/02_model_performance.png" alt="Model Performance">
+                    <p class="caption">Ensemble approach achieves 89% precision and 92% recall, outperforming individual methods by 15-20%.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>False Positive Rate Over Time</h4>
+                    <img src="/projects/anomaly_detection_outputs/03_false_positive_trend.png" alt="False Positive Trend">
+                    <p class="caption">Continuous model improvement reduced false positive rate from 12% to 4% over 6 months, saving 200+ hours of investigation time.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Predictive Maintenance Impact</h4>
+                    <img src="/projects/anomaly_detection_outputs/04_maintenance_impact.png" alt="Maintenance Impact">
+                    <p class="caption">48-hour advance warnings enabled planned maintenance, reducing unplanned downtime by 41% and saving €890K annually.</p>
+                </div>
+
+                <div class="visualization">
+                    <h4>Alert Distribution by Severity</h4>
+                    <img src="/projects/anomaly_detection_outputs/05_alert_distribution.png" alt="Alert Distribution">
+                    <p class="caption">Severity-based alerting: Critical (2%), High (8%), Medium (15%), Low (75%), enabling prioritized response.</p>
+                </div>
+            </div>
+
+            <!-- Technical Architecture -->
+            <div class="section">
+                <h3>🔧 Technical Architecture</h3>
+                <ul class="insights-list">
+                    <li><strong>Data Ingestion:</strong> Apache Kafka streaming 10M+ sensor readings daily from 500+ sensors across 50 machines</li>
+                    <li><strong>Isolation Forest:</strong> Detects point anomalies in multivariate sensor data with <10ms inference time</li>
+                    <li><strong>LSTM Autoencoder:</strong> Identifies sequence anomalies and temporal patterns in sensor time series</li>
+                    <li><strong>Statistical Process Control:</strong> Traditional control charts (Shewhart, CUSUM) for threshold-based detection</li>
+                    <li><strong>Ensemble Voting:</strong> Weighted combination with dynamic thresholds based on sensor type and historical performance</li>
+                    <li><strong>MLOps Pipeline:</strong> Docker containerization, Kubernetes orchestration, MLflow model versioning, Prometheus monitoring, Grafana dashboards</li>
+                </ul>
+            </div>
+
+            <!-- Business Impact -->
+            <div class="section">
+                <h3>💼 Business Impact</h3>
+                <ul class="insights-list">
+                    <li><strong>Equipment Failures Prevented:</strong> 23 critical failures avoided through early detection and intervention</li>
+                    <li><strong>Maintenance Cost Savings:</strong> €890K annual savings from planned vs. emergency maintenance (€38K avg per failure)</li>
+                    <li><strong>Downtime Reduction:</strong> 41% reduction in unplanned downtime, equivalent to 320 additional production hours</li>
+                    <li><strong>Production Efficiency:</strong> 8% improvement in overall equipment effectiveness (OEE)</li>
+                    <li><strong>Investigation Time:</strong> 67% reduction in false alarms saving 200+ engineering hours monthly</li>
+                </ul>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="section">
+                <h3>💡 Key Insights</h3>
+                <ul class="insights-list">
+                    <li><strong>Early Warning Patterns:</strong> Subtle vibration and temperature changes 48 hours before failure, invisible to human operators</li>
+                    <li><strong>Sensor Correlation:</strong> Multi-sensor anomalies 3x more predictive than single-sensor alerts</li>
+                    <li><strong>Seasonal Patterns:</strong> Ambient temperature affects sensor baselines; adaptive thresholds reduce false positives by 40%</li>
+                    <li><strong>Model Drift:</strong> Equipment degradation over time requires monthly model retraining to maintain accuracy</li>
+                    <li><strong>Alert Fatigue:</strong> Severity-based prioritization critical for operator adoption; low-priority alerts batched daily</li>
+                </ul>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="section">
+                <h3>🎯 Strategic Recommendations</h3>
+                <div class="recommendations">
+                    <div class="recommendation">
+                        <h4>1. Expand Sensor Coverage</h4>
+                        <p>Deploy additional sensors on critical equipment currently under-monitored. Expected impact: 30% more failures prevented, €400K additional savings.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>2. Remaining Useful Life Prediction</h4>
+                        <p>Extend system to predict remaining useful life (RUL) of components, enabling optimized maintenance scheduling.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>3. Root Cause Analysis Automation</h4>
+                        <p>Integrate causal inference methods to automatically identify failure root causes, reducing diagnosis time by 60%.</p>
+                    </div>
+                    <div class="recommendation">
+                        <h4>4. Cross-Facility Learning</h4>
+                        <p>Implement federated learning to share anomaly patterns across facilities while preserving data privacy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-nav">
+                <a href="#project-fraud-detection" class="nav-btn">← Previous Project</a>
+                <a href="/projects" class="nav-btn" target="_parent">Back to Projects</a>
+                <a href="#project-market-dashboard" class="nav-btn">Next Project →</a>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
     <!-- Back to Top Button -->
@@ -491,6 +1615,23 @@
                 showProject(projectId);
             }
         });
+    </script>
+
+    <script>
+        // Dark mode sync
+        function syncDarkMode() {
+            try {
+                const parentHtml = window.parent.document.documentElement;
+                const isDark = parentHtml.classList.contains('dark');
+                document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+            } catch (e) {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.style.colorScheme = prefersDark ? 'dark' : 'light';
+            }
+        }
+        syncDarkMode();
+        setInterval(syncDarkMode, 1000);
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncDarkMode);
     </script>
 </body>
 </html>
